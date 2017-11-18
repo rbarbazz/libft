@@ -6,7 +6,7 @@
 #    By: rbarbazz <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/09 16:41:38 by rbarbazz          #+#    #+#              #
-#    Updated: 2017/11/15 17:05:00 by rbarbazz         ###   ########.fr        #
+#    Updated: 2017/11/18 14:32:54 by rbarbazz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,13 +34,13 @@ OBJ_FILES = $(SRC_FILES:.c=.o)
 all: $(NAME)
 
 $(NAME): $(OBJ_FILES)
-	@ar rc $(NAME) $(OBJ_FILES)
-	@ranlib $(NAME)
+	ar rc $(NAME) $(OBJ_FILES)
+	ranlib $(NAME)
 
 clean:
-	@rm -f $(OBJ_FILES)
+	rm -f $(OBJ_FILES)
 
 fclean: clean
-	@rm -f $(NAME)
+	rm -f $(NAME)
 
 re: fclean all
