@@ -72,9 +72,7 @@ static char			**copy(char **tab, char const *s, char c)
 char				**ft_strsplit(char const *s, char c)
 {
 	char	**tab;
-	int		index;
 
-	index = 0;
 	if (!s)
 		return (NULL);
 	if (!(tab = (char**)malloc(sizeof(char*) * (count_words(s, c) + 1))))
