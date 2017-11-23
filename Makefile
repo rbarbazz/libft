@@ -6,7 +6,7 @@
 #    By: rbarbazz <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/09 16:41:38 by rbarbazz          #+#    #+#              #
-#    Updated: 2017/11/18 14:32:54 by rbarbazz         ###   ########.fr        #
+#    Updated: 2017/11/23 10:45:43 by rbarbazz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -63,7 +63,10 @@ SRC = ./src/ft_putchar.c \
       ./src/ft_strtrim.c \
       ./src/ft_strsplit.c \
       ./src/ft_itoa.c \
-      ./src/ft_strlcat.c
+      ./src/ft_strlcat.c \
+	  ./src/ft_lstnew.c \
+	  ./src/ft_lstdelone.c \
+	  ./src/ft_lstdel.c
 
 FLAGS = -Wall -Wextra -Werror
 

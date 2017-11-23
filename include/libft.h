@@ -6,7 +6,7 @@
 /*   By: rbarbazz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/09 16:37:58 by rbarbazz          #+#    #+#             */
-/*   Updated: 2017/11/22 19:11:28 by rbarbazz         ###   ########.fr       */
+/*   Updated: 2017/11/23 10:44:19 by rbarbazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,7 @@ char			**ft_strsplit(char const *s, char c);
 char			*ft_itoa(int n);
 size_t			ft_strlcat(char *dst, const char *src, size_t size);
 t_list			*ft_lstnew(void const *content, size_t content_size);
-void			ft_lstdelone(t_list **alst,void (*del)(void*, size_t));
+void			ft_lstdelone(t_list **alst, void (*del)(void*, size_t));
+void			ft_lstdel(t_list **alst, void (*del)(void*, size_t));
 
 #endif
