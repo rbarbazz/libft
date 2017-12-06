@@ -6,7 +6,7 @@
 #    By: rbarbazz <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/09 16:41:38 by rbarbazz          #+#    #+#              #
-#    Updated: 2017/11/23 10:45:43 by rbarbazz         ###   ########.fr        #
+#    Updated: 2017/12/06 11:34:54 by rbarbazz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -73,7 +73,7 @@ FLAGS = -Wall -Wextra -Werror
 OBJ = $(SRC:.c=.o)
 
 %.o: %.c
-	gcc $(FLAGS) -c $< -o $@ -I ./include
+	gcc $(FLAGS) -c $< -o $@ -I ./includes
 	
 all: $(NAME)
 
