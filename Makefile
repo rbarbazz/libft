@@ -38,7 +38,9 @@ SRC = ./src/ft_atoi.c \
 	  ./src/mem/ft_memalloc.c \
 	  ./src/lists/ft_lstnew.c \
 	  ./src/lists/ft_lstdelone.c \
+	  ./src/lists/ft_lstadd.c \
 	  ./src/lists/ft_lstdel.c \
+	  ./src/lists/ft_lstiter.c \
 	  ./src/strings/ft_strlen.c \
 	  ./src/strings/ft_strcat.c \
 	  ./src/strings/ft_strncat.c \
