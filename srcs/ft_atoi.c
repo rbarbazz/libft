@@ -1,37 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoinchar.c                                   :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rbarbazz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/20 13:02:24 by rbarbazz          #+#    #+#             */
-/*   Updated: 2017/12/20 13:03:28 by rbarbazz         ###   ########.fr       */
+/*   Created: 2017/11/09 17:59:51 by rbarbazz          #+#    #+#             */
+/*   Updated: 2018/01/28 15:25:52 by rbarbazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strjoinchar(char const *s1, char const c)
+int	ft_atoi(const char *str)
 {
-	char	*c_s1;
-	char	c_c;
-	char	*r;
 	int		i;
-	int		j;
+	int		sign;
+	long	result;
 
-	c_s1 = (char *)s1;
-	c_c = (char)c;
-	if (c_s1 == NULL)
-		return (NULL);
-	r = (char *)malloc(sizeof(char) * ft_strlen(c_s1) + 2);
-	if (!r)
-		return (NULL);
 	i = 0;
-	j = 0;
-	while (c_s1[i])
-		r[j++] = c_s1[i++];
-	r[j] = c_c;
-	r[j + 1] = 0;
-	return (r);
+	result = 0;
+	sign = 1;
+	while ((str[i] >= 9 && str[i] <= 13) || str[i] == ' ')
+		i++;
+	if (str[i] == '-' || str[i] == '+')
+	{
+		if (str[i] == '-')
+			sign = -1;
+		i++;
+	}
+	while (str[i] >= 48 && str[i] <= 57)
+	{
+		result = result * 10 + (str[i] - 48);
+		i++;
+	}
+	return (result * sign);
 }

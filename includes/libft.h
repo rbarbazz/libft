@@ -6,13 +6,14 @@
 /*   By: rbarbazz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/09 16:37:58 by rbarbazz          #+#    #+#             */
-/*   Updated: 2017/12/20 13:05:16 by rbarbazz         ###   ########.fr       */
+/*   Updated: 2018/01/12 17:31:07 by rbarbazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
+# include "ft_printf.h"
 # include <unistd.h>
 # include <stdlib.h>
 # include <string.h>
@@ -75,13 +76,13 @@ char			*ft_strsub(char const *s, unsigned int start, size_t len);
 char			*ft_strjoin(char const *s1, char const *s2);
 char			*ft_strtrim(char const *s);
 char			**ft_strsplit(char const *s, char c);
-char			*ft_itoa(int n);
+char			*ft_itoa(intmax_t n, int base, int maj);
+char			*ft_itoa_u(uintmax_t n, int base, int maj);
 size_t			ft_strlcat(char *dst, const char *src, size_t size);
 t_list			*ft_lstnew(void const *content, size_t content_size);
 void			ft_lstdelone(t_list **alst, void (*del)(void*, size_t));
 void			ft_lstdel(t_list **alst, void (*del)(void*, size_t));
-void			ft_lstadd(t_list **alst, t_list *new);
-void			ft_lstiter(t_list *lst, void (*f)(t_list *elem));
-char			*ft_strjoinchar(char const *s1, char const c);
+char			*ft_strjoinchar(char *s1, char const c);
+char			*ft_reverse(char *toreverse);
 
 #endif

@@ -6,75 +6,83 @@
 #    By: rbarbazz <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/09 16:41:38 by rbarbazz          #+#    #+#              #
-#    Updated: 2017/12/20 13:07:42 by rbarbazz         ###   ########.fr        #
+#    Updated: 2018/01/31 09:59:20 by rbarbazz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
 
-SRC = ./src/ft_atoi.c \
-	  ./src/ft_itoa.c \
-	  ./src/boolean/ft_isalpha.c \
-	  ./src/boolean/ft_isdigit.c \
-	  ./src/boolean/ft_isalnum.c \
-	  ./src/boolean/ft_isascii.c \
-	  ./src/boolean/ft_isprint.c \
-	  ./src/display/ft_putchar.c \
-	  ./src/display/ft_putendl.c \
-	  ./src/display/ft_putnbr.c \
-	  ./src/display/ft_putstr.c \
-	  ./src/display/ft_putchar_fd.c \
-	  ./src/display/ft_putstr_fd.c \
-	  ./src/display/ft_putendl_fd.c \
-	  ./src/display/ft_putnbr_fd.c \
-	  ./src/mem/ft_memset.c \
-	  ./src/mem/ft_bzero.c \
-	  ./src/mem/ft_memdel.c \
-	  ./src/mem/ft_memcpy.c \
-	  ./src/mem/ft_memccpy.c \
-	  ./src/mem/ft_memmove.c \
-	  ./src/mem/ft_memchr.c \
-	  ./src/mem/ft_memcmp.c \
-	  ./src/mem/ft_memalloc.c \
-	  ./src/lists/ft_lstnew.c \
-	  ./src/lists/ft_lstdelone.c \
-	  ./src/lists/ft_lstadd.c \
-	  ./src/lists/ft_lstdel.c \
-	  ./src/lists/ft_lstiter.c \
-	  ./src/strings/ft_strlen.c \
-	  ./src/strings/ft_strcat.c \
-	  ./src/strings/ft_strncat.c \
-	  ./src/strings/ft_strdup.c \
-	  ./src/strings/ft_strcpy.c \
-	  ./src/strings/ft_strncpy.c \
-	  ./src/strings/ft_strstr.c \
-	  ./src/strings/ft_strcmp.c \
-	  ./src/strings/ft_strncmp.c \
-	  ./src/strings/ft_strnstr.c \
-	  ./src/strings/ft_strchr.c \
-	  ./src/strings/ft_strnew.c \
-	  ./src/strings/ft_strrchr.c \
-	  ./src/strings/ft_strdel.c \
-	  ./src/strings/ft_strclr.c \
-	  ./src/strings/ft_striter.c \
-	  ./src/strings/ft_striteri.c \
-	  ./src/strings/ft_strmap.c \
-	  ./src/strings/ft_strlcat.c \
-	  ./src/strings/ft_strmapi.c \
-	  ./src/strings/ft_strequ.c \
-	  ./src/strings/ft_strnequ.c \
-	  ./src/strings/ft_strsub.c \
-	  ./src/strings/ft_strjoin.c \
-	  ./src/strings/ft_strtrim.c \
-	  ./src/strings/ft_strsplit.c \
-	  ./src/strings/ft_toupper.c \
-	  ./src/strings/ft_tolower.c \
-	  ./src/strings/ft_strjoinchar.c \
-	  ./src/get_next_line.c
+srcs = ./srcs/ft_atoi.c \
+	  ./srcs/ft_itoa.c \
+	  ./srcs/boolean/ft_isalpha.c \
+	  ./srcs/boolean/ft_isdigit.c \
+	  ./srcs/boolean/ft_isalnum.c \
+	  ./srcs/boolean/ft_isascii.c \
+	  ./srcs/boolean/ft_isprint.c \
+	  ./srcs/display/ft_putchar.c \
+	  ./srcs/display/ft_putendl.c \
+	  ./srcs/display/ft_putnbr.c \
+	  ./srcs/display/ft_putstr.c \
+	  ./srcs/display/ft_putchar_fd.c \
+	  ./srcs/display/ft_putstr_fd.c \
+	  ./srcs/display/ft_putendl_fd.c \
+	  ./srcs/display/ft_putnbr_fd.c \
+	  ./srcs/mem/ft_memset.c \
+	  ./srcs/mem/ft_bzero.c \
+	  ./srcs/mem/ft_memdel.c \
+	  ./srcs/mem/ft_memcpy.c \
+	  ./srcs/mem/ft_memccpy.c \
+	  ./srcs/mem/ft_memmove.c \
+	  ./srcs/mem/ft_memchr.c \
+	  ./srcs/mem/ft_memcmp.c \
+	  ./srcs/mem/ft_memalloc.c \
+	  ./srcs/lists/ft_lstnew.c \
+	  ./srcs/lists/ft_lstdelone.c \
+	  ./srcs/lists/ft_lstdel.c \
+	  ./srcs/strings/ft_strlen.c \
+	  ./srcs/strings/ft_strcat.c \
+	  ./srcs/strings/ft_strncat.c \
+	  ./srcs/strings/ft_strdup.c \
+	  ./srcs/strings/ft_strcpy.c \
+	  ./srcs/strings/ft_strncpy.c \
+	  ./srcs/strings/ft_strstr.c \
+	  ./srcs/strings/ft_strcmp.c \
+	  ./srcs/strings/ft_strncmp.c \
+	  ./srcs/strings/ft_strnstr.c \
+	  ./srcs/strings/ft_strchr.c \
+	  ./srcs/strings/ft_strnew.c \
+	  ./srcs/strings/ft_strrchr.c \
+	  ./srcs/strings/ft_strdel.c \
+	  ./srcs/strings/ft_strclr.c \
+	  ./srcs/strings/ft_striter.c \
+	  ./srcs/strings/ft_striteri.c \
+	  ./srcs/strings/ft_strmap.c \
+	  ./srcs/strings/ft_strlcat.c \
+	  ./srcs/strings/ft_strmapi.c \
+	  ./srcs/strings/ft_strequ.c \
+	  ./srcs/strings/ft_strnequ.c \
+	  ./srcs/strings/ft_strsub.c \
+	  ./srcs/strings/ft_strjoin.c \
+	  ./srcs/strings/ft_strtrim.c \
+	  ./srcs/strings/ft_strsplit.c \
+	  ./srcs/strings/ft_toupper.c \
+	  ./srcs/strings/ft_tolower.c \
+	  ./srcs/strings/ft_strjoinchar.c \
+	  ./srcs/strings/ft_reverse.c \
+	  ./srcs/get_next_line.c \
+	  ./srcs/ft_printf/ft_printf.c \
+	  ./srcs/ft_printf/apply_flags.c \
+	  ./srcs/ft_printf/convert_c.c \
+	  ./srcs/ft_printf/convert_s.c \
+	  ./srcs/ft_printf/convert_p.c \
+	  ./srcs/ft_printf/convert_int_long.c \
+	  ./srcs/ft_printf/convert_wchar.c \
+	  ./srcs/ft_printf/handle_arg.c \
+	  ./srcs/ft_printf/handle_arg2.c \
 
 FLAGS = -Wall -Wextra -Werror
 
-OBJ = $(SRC:.c=.o)
+OBJ = $(srcs:.c=.o)
 
 %.o: %.c
 	gcc $(FLAGS) -c $< -o $@ -I ./includes

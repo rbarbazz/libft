@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstiter.c                                       :+:      :+:    :+:   */
+/*   ft_strjoinchar.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rbarbazz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/23 10:34:11 by rbarbazz          #+#    #+#             */
-/*   Updated: 2017/11/23 11:49:36 by rbarbazz         ###   ########.fr       */
+/*   Created: 2017/12/20 13:02:24 by rbarbazz          #+#    #+#             */
+/*   Updated: 2018/01/10 17:20:32 by rbarbazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstiter(t_list *lst, void (*f)(t_list *elem))
+char	*ft_strjoinchar(char *s1, char const c)
 {
-	t_list *temp;
+	char	add[2];
+	char	*result;
 
-	temp = lst;
-	while (temp)
-	{
-		f(temp);
-		temp = temp->next;
-	}
+	add[0] = c;
+	add[1] = '\0';
+	result = ft_strjoin(s1, add);
+	free(s1);
+	return (result);
 }

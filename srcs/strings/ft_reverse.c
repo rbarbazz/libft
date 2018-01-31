@@ -1,31 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcat.c                                        :+:      :+:    :+:   */
+/*   ft_reverse.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rbarbazz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/10 16:05:09 by rbarbazz          #+#    #+#             */
-/*   Updated: 2017/11/10 16:12:12 by rbarbazz         ###   ########.fr       */
+/*   Created: 2018/01/05 13:54:22 by rbarbazz          #+#    #+#             */
+/*   Updated: 2018/01/05 14:03:59 by rbarbazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strcat(char *s1, const char *s2)
+char	*ft_reverse(char *toreverse)
 {
-	int	i;
-	int	len1;
+	char	swap;
+	int		len;
+	int		index;
 
-	i = 0;
-	len1 = 0;
-	while (s1[len1])
-		len1++;
-	while (s2[i])
+	index = 0;
+	len = ft_strlen(toreverse) - 1;
+	while (index < len)
 	{
-		s1[len1 + i] = s2[i];
-		i++;
+		swap = toreverse[index];
+		toreverse[index] = toreverse[len];
+		toreverse[len] = swap;
+		len--;
+		index++;
 	}
-	s1[len1 + i] = '\0';
-	return (s1);
+	return (toreverse);
 }

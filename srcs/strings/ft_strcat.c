@@ -1,40 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*   ft_strcat.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rbarbazz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/15 09:36:23 by rbarbazz          #+#    #+#             */
-/*   Updated: 2017/11/15 10:29:18 by rbarbazz         ###   ########.fr       */
+/*   Created: 2017/11/10 16:05:09 by rbarbazz          #+#    #+#             */
+/*   Updated: 2018/01/05 14:16:39 by rbarbazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_itoa(int n)
+char	*ft_strcat(char *s1, const char *s2)
 {
-	char	*str;
-	char	*tmp;
-	long	max;
+	int	i;
+	int	len1;
 
-	if (!(str = ft_strnew(0)))
-		return (NULL);
-	if (!(tmp = ft_strnew(1)))
-		return (NULL);
-	max = (long)n;
-	max = max < 0 ? -max : max;
-	if (max == 0)
-		str[0] = '0';
-	while (max)
+	i = 0;
+	len1 = 0;
+	while (s1[len1])
+		len1++;
+	while (s2[i])
 	{
-		tmp[0] = (max % 10) + 48;
-		if (!(str = ft_strjoin(tmp, str)))
-			return (NULL);
-		max = max / 10;
+		s1[len1 + i] = s2[i];
+		i++;
 	}
-	if (n < 0)
-		if (!(str = ft_strjoin((char*)("-"), str)))
-			return (NULL);
-	return (str);
+	s1[len1 + i] = '\0';
+	return (s1);
 }
