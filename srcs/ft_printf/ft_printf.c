@@ -6,7 +6,7 @@
 /*   By: rbarbazz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/14 11:53:49 by rbarbazz          #+#    #+#             */
-/*   Updated: 2018/01/28 15:23:01 by rbarbazz         ###   ########.fr       */
+/*   Updated: 2018/02/21 14:10:03 by rbarbazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,12 +39,12 @@ int		handle_conversion_by_type(va_list ap, t_arg *arg)
 	return (0);
 }
 
-int		check_format(const char *format, t_arg *arg, int i)
+int		check_format(const char *format, t_arg *arg, int i, va_list ap)
 {
 	while (check_specifier(format, arg, &i) == 1 && format[i])
 	{
 		if (check_flags(format, arg, &i) == 1 && \
-				check_width(format, arg, &i) == 1 && \
+				check_width(format, arg, &i, ap) == 1 && \
 				check_precision(format, arg, &i) == 1 && \
 				check_length(format, arg, &i) == 1)
 		{
@@ -70,7 +70,7 @@ int		check_and_convert(const char *format, t_arg *arg, va_list ap)
 		if (format[i] == '%')
 		{
 			init_struct(arg, &i);
-			i = check_format(format, arg, i);
+			i = check_format(format, arg, i, ap);
 			if (arg->specifier)
 			{
 				handle_conversion_by_type(ap, arg);
