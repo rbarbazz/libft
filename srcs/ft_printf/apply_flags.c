@@ -6,7 +6,7 @@
 /*   By: rbarbazz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/14 16:51:51 by rbarbazz          #+#    #+#             */
-/*   Updated: 2018/02/22 11:25:14 by rbarbazz         ###   ########.fr       */
+/*   Updated: 2018/02/22 13:41:50 by rbarbazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,13 +38,13 @@ int		check_width(const char *format, t_arg *arg, int *i, va_list ap)
 	int		itmp;
 
 	itmp = 0;
-	tmp = ft_memalloc(ft_strlen(format));
 	if (format[*i] == '*')
 	{
 		arg->width = va_arg(ap, int);
 		(*i)++;
 		return (0);
 	}
+	tmp = ft_memalloc(ft_strlen(format));
 	while ((ft_isdigit(format[*i])) == 1)
 	{
 		tmp[itmp] = format[*i++];
