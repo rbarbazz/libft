@@ -76,10 +76,8 @@ static int		add_ws(t_arg *arg)
 
 int				convert_ws(t_arg *arg)
 {
-	char	*nul;
 	int		len;
 
-	nul = "(null)";
 	len = 0;
 	arg->savepr = arg->prec;
 	if (arg->ws == NULL)
