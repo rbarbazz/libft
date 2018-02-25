@@ -85,7 +85,7 @@ FLAGS = -Wall -Wextra -Werror
 OBJ = $(srcs:.c=.o)
 
 %.o: %.c
-	gcc $(FLAGS) -c $< -o $@ -I ./includes
+	clang $(FLAGS) -c $< -o $@ -I ./includes
 
 all: $(NAME)
 
