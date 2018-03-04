@@ -6,14 +6,13 @@
 /*   By: rbarbazz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/09 16:37:58 by rbarbazz          #+#    #+#             */
-/*   Updated: 2018/01/12 17:31:07 by rbarbazz         ###   ########.fr       */
+/*   Updated: 2018/03/04 10:11:44 by rbarbazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
-# include "ft_printf.h"
 # include <unistd.h>
 # include <stdlib.h>
 # include <string.h>
