@@ -6,11 +6,11 @@
 /*   By: rbarbazz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/16 12:39:08 by rbarbazz          #+#    #+#             */
-/*   Updated: 2018/01/26 18:02:32 by rbarbazz         ###   ########.fr       */
+/*   Updated: 2018/03/08 16:14:57 by rbarbazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/ft_printf.h"
+#include "ft_printf.h"
 
 int	check_type_int(va_list ap, t_arg *arg)
 {

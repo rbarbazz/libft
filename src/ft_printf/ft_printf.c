@@ -6,11 +6,11 @@
 /*   By: rbarbazz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/14 11:53:49 by rbarbazz          #+#    #+#             */
-/*   Updated: 2018/02/21 14:10:03 by rbarbazz         ###   ########.fr       */
+/*   Updated: 2018/03/08 16:14:00 by rbarbazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/ft_printf.h"
+#include "ft_printf.h"
 
 int		handle_conversion_by_type(va_list ap, t_arg *arg)
 {

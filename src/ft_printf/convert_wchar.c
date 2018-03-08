@@ -6,11 +6,11 @@
 /*   By: rbarbazz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/14 13:27:45 by rbarbazz          #+#    #+#             */
-/*   Updated: 2018/01/28 13:32:55 by rbarbazz         ###   ########.fr       */
+/*   Updated: 2018/03/08 16:14:49 by rbarbazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/ft_printf.h"
+#include "ft_printf.h"
 
 int		calc_length(t_arg *arg)
 {

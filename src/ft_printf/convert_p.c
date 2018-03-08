@@ -6,11 +6,11 @@
 /*   By: rbarbazz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/04 09:47:24 by rbarbazz          #+#    #+#             */
-/*   Updated: 2018/01/26 18:03:02 by rbarbazz         ###   ########.fr       */
+/*   Updated: 2018/03/08 16:14:35 by rbarbazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/ft_printf.h"
+#include "ft_printf.h"
 
 int		apply_width(t_arg *arg)
 {

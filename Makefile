@@ -6,88 +6,97 @@
 #    By: rbarbazz <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/09 16:41:38 by rbarbazz          #+#    #+#              #
-#    Updated: 2018/03/04 10:10:23 by rbarbazz         ###   ########.fr        #
+#    Updated: 2018/03/08 16:23:53 by rbarbazz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
 
-SRCS = srcs/ft_atoi.c \
-	   srcs/ft_itoa.c \
-	   srcs/boolean/ft_isalpha.c \
-	   srcs/boolean/ft_isdigit.c \
-	   srcs/boolean/ft_isalnum.c \
-	   srcs/boolean/ft_isascii.c \
-	   srcs/boolean/ft_isprint.c \
-	   srcs/display/ft_putchar.c \
-	   srcs/display/ft_putendl.c \
-	   srcs/display/ft_putnbr.c \
-	   srcs/display/ft_putstr.c \
-	   srcs/display/ft_putchar_fd.c \
-	   srcs/display/ft_putstr_fd.c \
-	   srcs/display/ft_putendl_fd.c \
-	   srcs/display/ft_putnbr_fd.c \
-	   srcs/mem/ft_memset.c \
-	   srcs/mem/ft_bzero.c \
-	   srcs/mem/ft_memdel.c \
-	   srcs/mem/ft_memcpy.c \
-	   srcs/mem/ft_memccpy.c \
-	   srcs/mem/ft_memmove.c \
-	   srcs/mem/ft_memchr.c \
-	   srcs/mem/ft_memcmp.c \
-	   srcs/mem/ft_memalloc.c \
-	   srcs/lists/ft_lstnew.c \
-	   srcs/lists/ft_lstdelone.c \
-	   srcs/lists/ft_lstdel.c \
-	   srcs/strings/ft_strlen.c \
-	   srcs/strings/ft_strcat.c \
-	   srcs/strings/ft_strncat.c \
-	   srcs/strings/ft_strdup.c \
-	   srcs/strings/ft_strcpy.c \
-	   srcs/strings/ft_strncpy.c \
-	   srcs/strings/ft_strstr.c \
-	   srcs/strings/ft_strcmp.c \
-	   srcs/strings/ft_strncmp.c \
-	   srcs/strings/ft_strnstr.c \
-	   srcs/strings/ft_strchr.c \
-	   srcs/strings/ft_strnew.c \
-	   srcs/strings/ft_strrchr.c \
-	   srcs/strings/ft_strdel.c \
-	   srcs/strings/ft_strclr.c \
-	   srcs/strings/ft_striter.c \
-	   srcs/strings/ft_striteri.c \
-	   srcs/strings/ft_strmap.c \
-	   srcs/strings/ft_strlcat.c \
-	   srcs/strings/ft_strmapi.c \
-	   srcs/strings/ft_strequ.c \
-	   srcs/strings/ft_strnequ.c \
-	   srcs/strings/ft_strsub.c \
-	   srcs/strings/ft_strjoin.c \
-	   srcs/strings/ft_strtrim.c \
-	   srcs/strings/ft_strsplit.c \
-	   srcs/strings/ft_toupper.c \
-	   srcs/strings/ft_tolower.c \
-	   srcs/strings/ft_strjoinchar.c \
-	   srcs/strings/ft_reverse.c \
-	   srcs/get_next_line.c \
-	   srcs/ft_printf/ft_printf.c \
-	   srcs/ft_printf/apply_flags.c \
-	   srcs/ft_printf/convert_c.c \
-	   srcs/ft_printf/convert_s.c \
-	   srcs/ft_printf/convert_p.c \
-	   srcs/ft_printf/convert_int_long.c \
-	   srcs/ft_printf/convert_wchar.c \
-	   srcs/ft_printf/handle_arg.c \
-	   srcs/ft_printf/handle_arg2.c
+SRC_PATH = src
+
+SRC_NAME = ft_atoi.c \
+		   ft_itoa.c \
+		   boolean/ft_isalpha.c \
+		   boolean/ft_isdigit.c \
+		   boolean/ft_isalnum.c \
+		   boolean/ft_isascii.c \
+		   boolean/ft_isprint.c \
+		   display/ft_putchar.c \
+		   display/ft_putendl.c \
+		   display/ft_putnbr.c \
+		   display/ft_putstr.c \
+		   display/ft_putchar_fd.c \
+		   display/ft_putstr_fd.c \
+		   display/ft_putendl_fd.c \
+		   display/ft_putnbr_fd.c \
+		   mem/ft_memset.c \
+		   mem/ft_bzero.c \
+		   mem/ft_memdel.c \
+		   mem/ft_memcpy.c \
+		   mem/ft_memccpy.c \
+		   mem/ft_memmove.c \
+		   mem/ft_memchr.c \
+		   mem/ft_memcmp.c \
+		   mem/ft_memalloc.c \
+		   lists/ft_lstnew.c \
+		   lists/ft_lstdelone.c \
+		   lists/ft_lstdel.c \
+		   strings/ft_strlen.c \
+		   strings/ft_strcat.c \
+		   strings/ft_strncat.c \
+		   strings/ft_strdup.c \
+		   strings/ft_strcpy.c \
+		   strings/ft_strncpy.c \
+		   strings/ft_strstr.c \
+		   strings/ft_strcmp.c \
+		   strings/ft_strncmp.c \
+		   strings/ft_strnstr.c \
+		   strings/ft_strchr.c \
+		   strings/ft_strnew.c \
+		   strings/ft_strrchr.c \
+		   strings/ft_strdel.c \
+		   strings/ft_strclr.c \
+		   strings/ft_striter.c \
+		   strings/ft_striteri.c \
+		   strings/ft_strmap.c \
+		   strings/ft_strlcat.c \
+		   strings/ft_strmapi.c \
+		   strings/ft_strequ.c \
+		   strings/ft_strnequ.c \
+		   strings/ft_strsub.c \
+		   strings/ft_strjoin.c \
+		   strings/ft_strtrim.c \
+		   strings/ft_strsplit.c \
+		   strings/ft_toupper.c \
+		   strings/ft_tolower.c \
+		   strings/ft_strjoinchar.c \
+		   strings/ft_reverse.c \
+		   get_next_line.c \
+		   ft_printf/ft_printf.c \
+		   ft_printf/apply_flags.c \
+		   ft_printf/convert_c.c \
+		   ft_printf/convert_s.c \
+		   ft_printf/convert_p.c \
+		   ft_printf/convert_int_long.c \
+		   ft_printf/convert_wchar.c \
+		   ft_printf/handle_arg.c \
+		   ft_printf/handle_arg2.c
+
+OBJ_PATH = obj
+
+CPPFLAGS = -Iinclude
 
 CFLAGS = -Wall -Wextra -Werror
 
-HEADERS = -I includes
+CC = clang
 
-OBJ = $(SRCS:.c=.o)
+OBJ_NAME = $(SRC_NAME:.c=.o)
 
-%.o: %.c
-	clang $(CFLAGS) -c $< -o $@ $(HEADERS)
+SRC = $(addprefix $(SRC_PATH)/,$(SRC_NAME))
+
+OBJ = $(addprefix $(OBJ_PATH)/,$(OBJ_NAME))
+
+.PHONY: all, clean, fclean, re
 
 all: $(NAME)
 
@@ -95,8 +104,12 @@ $(NAME): $(OBJ)
 	ar rc $(NAME) $(OBJ)
 	ranlib $(NAME)
 
+$(OBJ_PATH)/%.o: $(SRC_PATH)/%.c
+	@mkdir -p obj/{ft_printf,strings,boolean,display,lists,mem}
+	$(CC) $(CFLAGS) $(CPPFLAGS) -o $@ -c $<
+
 clean:
-	rm -f $(OBJ)
+	rm -rf obj
 
 fclean: clean
 	rm -f $(NAME)

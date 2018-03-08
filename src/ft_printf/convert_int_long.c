@@ -6,11 +6,11 @@
 /*   By: rbarbazz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/05 17:19:32 by rbarbazz          #+#    #+#             */
-/*   Updated: 2018/01/28 15:26:21 by rbarbazz         ###   ########.fr       */
+/*   Updated: 2018/03/08 16:14:29 by rbarbazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/ft_printf.h"
+#include "ft_printf.h"
 
 static int	apply_precision(t_arg *arg)
 {
