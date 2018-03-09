@@ -6,7 +6,7 @@
 /*   By: rbarbazz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/06 10:02:45 by rbarbazz          #+#    #+#             */
-/*   Updated: 2018/03/08 16:13:33 by rbarbazz         ###   ########.fr       */
+/*   Updated: 2018/03/09 19:57:12 by rbarbazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,16 @@
 
 char	*to_backslash(char *str)
 {
-	int		index;
+	int		i;
 	char	*dst;
 
-	index = 0;
-	while (str[index] != '\n' && str[index] != '\0')
-		index++;
-	if (!(dst = (char*)malloc(sizeof(char) * (index + 1))))
+	i = 0;
+	while (str[i] && str[i] != '\n')
+		i++;
+	if (!(dst = (char*)malloc(sizeof(char) * (i + 1))))
 		return (NULL);
-	dst = ft_memcpy(dst, str, index);
-	dst[index] = '\0';
+	dst = ft_strncpy(dst, str, i);
+	dst[i] = '\0';
 	return (dst);
 }
 
@@ -53,15 +53,15 @@ int		check_last(char *tmp, char **line, char **save)
 
 int		norm(char *tmp, char **line, char **save)
 {
-	char	*swag;
+	char	*noleak;
 
-	swag = to_backslash(tmp);
+	noleak = to_backslash(tmp);
 	if (!*save)
-		*line = swag;
+		*line = noleak;
 	else
 	{
-		*line = ft_strjoin(*save, swag);
-		free(swag);
+		*line = ft_strjoin(*save, noleak);
+		free(noleak);
 		free(*save);
 	}
 	*save = ft_strdup(ft_strchr(tmp, '\n') + 1);
@@ -71,18 +71,18 @@ int		norm(char *tmp, char **line, char **save)
 
 int		read_buffer(const int fd, char **line, char **save)
 {
-	char	*swag;
+	char	*noleak;
 	int		ret;
 	char	buf[BUFF_SIZE + 1];
 	char	*tmp;
 
-	tmp = ft_strnew(0);
+	tmp = "";
 	while ((ret = read(fd, buf, BUFF_SIZE)) > 0)
 	{
 		buf[ret] = '\0';
-		swag = ft_strjoin(tmp, buf);
+		noleak = ft_strjoin(tmp, buf);
 		free(tmp);
-		tmp = swag;
+		tmp = noleak;
 		if (ft_strchr(buf, '\n'))
 			return (norm(tmp, line, save));
 	}
@@ -94,18 +94,18 @@ int		read_buffer(const int fd, char **line, char **save)
 int		get_next_line(const int fd, char **line)
 {
 	static char	*save = NULL;
-	char		*swag;
+	char		*noleak;
 
-	if (fd < 0)
+	if (fd < 0 || !line)
 		return (-1);
 	if (save)
 	{
 		if (ft_strchr(save, '\n'))
 		{
-			swag = save;
+			noleak = save;
 			*line = to_backslash(save);
 			save = ft_strdup(ft_strchr(save, '\n') + 1);
-			free(swag);
+			free(noleak);
 			return (1);
 		}
 	}
