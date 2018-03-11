@@ -6,7 +6,7 @@
 /*   By: rbarbazz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/06 10:02:45 by rbarbazz          #+#    #+#             */
-/*   Updated: 2018/03/09 19:57:12 by rbarbazz         ###   ########.fr       */
+/*   Updated: 2018/03/11 14:08:50 by rbarbazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,16 @@
 
 char	*to_backslash(char *str)
 {
-	int		i;
+	int		index;
 	char	*dst;
 
-	i = 0;
-	while (str[i] && str[i] != '\n')
-		i++;
-	if (!(dst = (char*)malloc(sizeof(char) * (i + 1))))
+	index = 0;
+	while (str[index] != '\n' && str[index] != '\0')
+		index++;
+	if (!(dst = (char*)malloc(sizeof(char) * (index + 1))))
 		return (NULL);
-	dst = ft_strncpy(dst, str, i);
-	dst[i] = '\0';
+	dst = ft_memcpy(dst, str, index);
+	dst[index] = '\0';
 	return (dst);
 }
 
@@ -34,7 +34,6 @@ int		check_last(char *tmp, char **line, char **save)
 		if (*save)
 		{
 			*line = ft_strjoin(*save, tmp);
-			free(tmp);
 			free(*save);
 		}
 		else
@@ -42,16 +41,17 @@ int		check_last(char *tmp, char **line, char **save)
 		*save = NULL;
 		return (1);
 	}
-	else if (*save && *save[0] != '\0' && ft_strchr(*save, '\0'))
+	else if (*save && *save[0] && ft_strchr(*save, '\0'))
 	{
 		*line = *save;
 		*save = NULL;
 		return (1);
 	}
+	free(tmp);
 	return (0);
 }
 
-int		norm(char *tmp, char **line, char **save)
+int		save_buffer(char *tmp, char **line, char **save)
 {
 	char	*noleak;
 
@@ -76,7 +76,7 @@ int		read_buffer(const int fd, char **line, char **save)
 	char	buf[BUFF_SIZE + 1];
 	char	*tmp;
 
-	tmp = "";
+	tmp = ft_strnew(0);
 	while ((ret = read(fd, buf, BUFF_SIZE)) > 0)
 	{
 		buf[ret] = '\0';
@@ -84,7 +84,7 @@ int		read_buffer(const int fd, char **line, char **save)
 		free(tmp);
 		tmp = noleak;
 		if (ft_strchr(buf, '\n'))
-			return (norm(tmp, line, save));
+			return (save_buffer(tmp, line, save));
 	}
 	if (ret < 0)
 		return (-1);
@@ -96,7 +96,7 @@ int		get_next_line(const int fd, char **line)
 	static char	*save = NULL;
 	char		*noleak;
 
-	if (fd < 0 || !line)
+	if (fd < 0)
 		return (-1);
 	if (save)
 	{
