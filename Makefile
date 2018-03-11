@@ -105,7 +105,7 @@ $(NAME): $(OBJ)
 	ranlib $(NAME)
 
 $(OBJ_PATH)/%.o: $(SRC_PATH)/%.c
-	@mkdir -p obj/{ft_printf,strings,boolean,display,lists,mem}
+	mkdir -p obj/ft_printf obj/strings obj/boolean obj/display obj/lists obj/mem
 	$(CC) $(CFLAGS) $(CPPFLAGS) -o $@ -c $<
 
 clean:
