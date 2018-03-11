@@ -6,7 +6,7 @@
 /*   By: rbarbazz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/14 10:01:56 by rbarbazz          #+#    #+#             */
-/*   Updated: 2018/03/04 10:37:03 by rbarbazz         ###   ########.fr       */
+/*   Updated: 2018/03/11 16:28:39 by rbarbazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,8 @@ int					check_and_convert\
 int					check_flags(const char *format, t_arg *arg, int *i);
 int					check_width(const char *format, t_arg *arg, int *i,\
 		va_list ap);
-int					check_precision(const char *format, t_arg *arg, int *i);
+int					check_precision(const char *format, t_arg *arg, int *i,\
+		va_list ap);
 int					check_length(const char *format, t_arg *arg, int *i);
 int					check_specifier(const char *format, t_arg *arg, int *i);
 
