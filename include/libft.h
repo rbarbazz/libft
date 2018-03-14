@@ -6,7 +6,7 @@
 /*   By: rbarbazz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/09 16:37:58 by rbarbazz          #+#    #+#             */
-/*   Updated: 2018/03/04 10:11:44 by rbarbazz         ###   ########.fr       */
+/*   Updated: 2018/03/14 11:50:15 by rbarbazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ typedef struct	s_list
 	struct s_list	*next;
 }				t_list;
 
+char	*dup_from_char(char *str, char c);
+char	*dup_to_char(char *str, char c);
 void			ft_putchar(char c);
 void			ft_putstr(char const *s);
 void			ft_putendl(char const *s);
