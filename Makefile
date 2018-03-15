@@ -6,7 +6,7 @@
 #    By: rbarbazz <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/09 16:41:38 by rbarbazz          #+#    #+#              #
-#    Updated: 2018/03/14 18:12:58 by rbarbazz         ###   ########.fr        #
+#    Updated: 2018/03/15 17:59:00 by rbarbazz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -99,8 +99,6 @@ SRC = $(addprefix $(SRC_PATH)/,$(SRC_NAME))
 
 OBJ = $(addprefix $(OBJ_PATH)/,$(OBJ_NAME))
 
-.PHONY: all, clean, fclean, re
-
 all: $(NAME)
 
 $(NAME): $(OBJ)
@@ -108,7 +106,7 @@ $(NAME): $(OBJ)
 	ranlib $(NAME)
 
 $(OBJ_PATH)/%.o: $(SRC_PATH)/%.c
-	mkdir -p obj/ft_printf obj/strings obj/boolean obj/display obj/lists obj/mem
+	@mkdir -p obj/ft_printf obj/strings obj/boolean obj/display obj/lists obj/mem
 	$(CC) $(CFLAGS) $(CPPFLAGS) -o $@ -c $<
 
 clean:
@@ -118,3 +116,5 @@ fclean: clean
 	rm -f $(NAME)
 
 re: fclean all
+
+.PHONY: all, clean, fclean, re
