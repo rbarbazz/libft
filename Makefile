@@ -6,7 +6,7 @@
 #    By: rbarbazz <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/09 16:41:38 by rbarbazz          #+#    #+#              #
-#    Updated: 2018/03/15 17:59:00 by rbarbazz         ###   ########.fr        #
+#    Updated: 2018/03/16 13:43:34 by rbarbazz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -74,6 +74,7 @@ SRC_NAME = ft_atoi.c\
 		   strings/dup_to_char.c\
 		   strings/dup_from_char.c\
 		   strings/ft_strsplit_whitespace.c\
+		   strings/ft_strstrdup.c\
 		   get_next_line.c\
 		   ft_printf/ft_printf.c\
 		   ft_printf/apply_flags.c\
