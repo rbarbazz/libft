@@ -6,77 +6,67 @@
 /*   By: rbarbazz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/15 09:24:49 by rbarbazz          #+#    #+#             */
-/*   Updated: 2017/11/15 10:59:38 by rbarbazz         ###   ########.fr       */
+/*   Updated: 2018/03/17 12:05:29 by rbarbazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int			is_char(char const *s, char c, int index)
+static int	count_words(const char *str, char c)
 {
-	if (s[index] == c)
-		return (1);
-	if (s[index] == '\0')
-		return (2);
-	return (0);
-}
+	int wc;
+	int i;
 
-static int			count_words(char const *s, char c)
-{
-	int count;
-	int index;
-
-	index = 0;
-	count = 0;
-	while (s[index])
+	i = 0;
+	wc = 0;
+	while (str[i])
 	{
-		while (is_char(s, c, index) == 1)
-			index++;
-		if (is_char(s, c, index) == 0)
-		{
-			while (is_char(s, c, index) == 0)
-				index++;
-			count++;
-		}
+		while (str[i] == c)
+			i++;
+		if (str[i])
+			wc++;
+		while (str[i] && str[i] != c)
+			i++;
 	}
-	return (count);
+	return (wc);
 }
 
-static char			**copy(char **tab, char const *s, char c)
+static char	**copy(char **res, const char *str, char c, int wc)
 {
-	int index;
+	int i;
 	int wn;
 	int cn;
 
 	wn = 0;
-	index = 0;
-	while (wn < count_words(s, c))
+	i = 0;
+	while (wn < wc)
 	{
 		cn = 0;
-		tab[wn] = (char*)malloc(sizeof(char) * (ft_strlen(s) + 1));
-		while (is_char(s, c, index) == 1)
-			index++;
-		while (is_char(s, c, index) == 0)
+		if (!(res[wn] = (char*)malloc(sizeof(char) * (ft_strlen(str) + 1))))
+			return (NULL);
+		while (str[i] == c)
+			i++;
+		while (str[i] && str[i] != c)
 		{
-			tab[wn][cn] = s[index];
-			index++;
+			res[wn][cn] = str[i];
+			i++;
 			cn++;
 		}
-		tab[wn][cn] = '\0';
+		res[wn][cn] = '\0';
 		wn++;
 	}
-	tab[wn] = NULL;
-	return (tab);
+	res[wn] = NULL;
+	return (res);
 }
 
-char				**ft_strsplit(char const *s, char c)
+char		**ft_strsplit(const char *str, char c)
 {
-	char	**tab;
+	char	**res;
+	int		wc;
 
-	if (!s)
+	wc = count_words(str, c);
+	if (!str || !wc || !(res = (char**)malloc(sizeof(char*) * (wc + 1))))
 		return (NULL);
-	if (!(tab = (char**)malloc(sizeof(char*) * (count_words(s, c) + 1))))
-		return (NULL);
-	copy(tab, s, c);
-	return (tab);
+	res = copy(res, str, c, wc);
+	return (res);
 }
