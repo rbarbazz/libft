@@ -6,43 +6,32 @@
 /*   By: rbarbazz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/14 18:10:43 by rbarbazz          #+#    #+#             */
-/*   Updated: 2018/03/14 18:56:26 by rbarbazz         ###   ########.fr       */
+/*   Updated: 2018/03/17 11:23:16 by rbarbazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int			is_space(char *str, int i)
+static int	count_words(char *str)
 {
-	if (str[i] == 32 || str[i] == 9 || str[i] == 10)
-		return (1);
-	if (str[i] == '\0')
-		return (2);
-	return (0);
-}
-
-int			count_words(char *str)
-{
-	int count;
+	int wc;
 	int i;
 
 	i = 0;
-	count = 0;
+	wc = 0;
 	while (str[i])
 	{
-		while (is_space(str, i) == 1)
+		while (str[i] == 32 || str[i] == 9 || str[i] == 10)
 			i++;
-		if (!is_space(str, i))
-		{
-			while (!is_space(str, i))
-				i++;
-			count++;
-		}
+		if (str[i])
+			wc++;
+		while (str[i] && str[i] != 32 && str[i] != 9 && str[i] != 10)
+			i++;
 	}
-	return (count);
+	return (wc);
 }
 
-char		**copy(char **tab, char *str)
+static char	**copy(char **res, char *str, int wc)
 {
 	int i;
 	int wn;
@@ -50,33 +39,36 @@ char		**copy(char **tab, char *str)
 
 	wn = 0;
 	i = 0;
-	while (wn < count_words(str))
+	while (wn < wc)
 	{
 		cn = 0;
-		tab[wn] = (char*)malloc(sizeof(char) * (ft_strlen(str) + 1));
-		while (is_space(str, i) == 1)
+		if (!(res[wn] = (char*)malloc(sizeof(char) * (ft_strlen(str) + 1))))
+			return (NULL);
+		while (str[i] == 32 || str[i] == 9 || str[i] == 10)
 			i++;
-		while (!is_space(str, i))
+		while (str[i] && str[i] != 32 && str[i] != 9 && str[i] != 10)
 		{
-			tab[wn][cn] = str[i];
+			res[wn][cn] = str[i];
 			i++;
 			cn++;
 		}
-		tab[wn][cn] = '\0';
+		res[wn][cn] = '\0';
 		wn++;
 	}
-	tab[wn] = NULL;
-	return (tab);
+	res[wn] = NULL;
+	return (res);
 }
 
 char		**ft_strsplit_whitespace(char *str)
 {
-	char	**tab;
+	char	**res;
 	int		i;
+	int		wc;
 
 	i = 0;
-	tab = NULL;
-	tab = (char**)malloc(sizeof(char*) * (count_words(str) + 1));
-	copy(tab, str);
-	return (tab);
+	wc = count_words(str);
+	if (!str || !(res = (char**)malloc(sizeof(char*) * (wc + 1))))
+		return (NULL);
+	res = copy(res, str, wc);
+	return (res);
 }
