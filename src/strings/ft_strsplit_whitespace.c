@@ -6,7 +6,7 @@
 /*   By: rbarbazz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/14 18:10:43 by rbarbazz          #+#    #+#             */
-/*   Updated: 2018/03/17 11:23:16 by rbarbazz         ###   ########.fr       */
+/*   Updated: 2018/03/17 11:35:17 by rbarbazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ char		**ft_strsplit_whitespace(char *str)
 
 	i = 0;
 	wc = count_words(str);
-	if (!str || !(res = (char**)malloc(sizeof(char*) * (wc + 1))))
+	if (!str || !wc || !(res = (char**)malloc(sizeof(char*) * (wc + 1))))
 		return (NULL);
 	res = copy(res, str, wc);
 	return (res);
