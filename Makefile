@@ -6,7 +6,7 @@
 #    By: rbarbazz <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/09 16:41:38 by rbarbazz          #+#    #+#              #
-#    Updated: 2018/03/16 13:43:34 by rbarbazz         ###   ########.fr        #
+#    Updated: 2018/03/21 18:05:03 by rbarbazz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,6 +38,7 @@ SRC_NAME = ft_atoi.c\
 		   mem/ft_memchr.c\
 		   mem/ft_memcmp.c\
 		   mem/ft_memalloc.c\
+		   mem/strstr_free.c\
 		   lists/ft_lstnew.c\
 		   lists/ft_lstdelone.c\
 		   lists/ft_lstdel.c\
