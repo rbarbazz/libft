@@ -6,7 +6,7 @@
 /*   By: rbarbazz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/15 09:24:49 by rbarbazz          #+#    #+#             */
-/*   Updated: 2018/03/24 13:34:19 by rbarbazz         ###   ########.fr       */
+/*   Updated: 2018/03/24 14:18:10 by rbarbazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,15 @@ static int	count_words(const char *str, char c)
 	wc = 0;
 	while (str[i])
 	{
-		while (str[i] == c)
+		while (str[i] && str[i] == c)
 			i++;
 		if (str[i])
 			wc++;
 		while (str[i] && str[i] != c)
 			i++;
 	}
+	if (!wc)
+		wc = 1;
 	return (wc);
 }
 

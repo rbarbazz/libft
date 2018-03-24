@@ -6,7 +6,7 @@
 /*   By: rbarbazz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/11 11:49:31 by rbarbazz          #+#    #+#             */
-/*   Updated: 2017/11/11 12:32:10 by rbarbazz         ###   ########.fr       */
+/*   Updated: 2018/03/24 14:07:21 by rbarbazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 void	ft_memdel(void **ap)
 {
-	if (!ap)
-		return ;
-	*ap = 0;
-	free(*ap);
-	*ap = NULL;
+	if (ap && *ap)
+	{
+		free(*ap);
+		*ap = NULL;
+	}
 }
