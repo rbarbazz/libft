@@ -6,7 +6,7 @@
 /*   By: rbarbazz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/09 16:37:58 by rbarbazz          #+#    #+#             */
-/*   Updated: 2018/03/21 18:04:42 by rbarbazz         ###   ########.fr       */
+/*   Updated: 2018/03/24 13:32:51 by rbarbazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void			strstr_free(char **str);
 char			**ft_strstrdup(char **tab);
 char			*dup_from_char(char *str, char c);
 char			*dup_to_char(char *str, char c);
-char			**ft_strsplit_whitespace(char *str);
+char			**ft_strsplit_whitespace(const char *str);
 void			ft_putchar(char c);
 void			ft_putstr(char const *s);
 void			ft_putendl(char const *s);
