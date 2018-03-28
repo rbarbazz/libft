@@ -6,7 +6,7 @@
 /*   By: rbarbazz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/14 18:10:43 by rbarbazz          #+#    #+#             */
-/*   Updated: 2018/03/24 13:44:24 by rbarbazz         ###   ########.fr       */
+/*   Updated: 2018/03/28 17:23:40 by rbarbazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static int	count_words(const char *str)
 	return (wc);
 }
 
-static char	**copy(char **res, const  char *str, int wc)
+static char	**copy(char **res, const char *str, int wc)
 {
 	int i;
 	int wn;
