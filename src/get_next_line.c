@@ -6,7 +6,7 @@
 /*   By: rbarbazz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/06 10:02:45 by rbarbazz          #+#    #+#             */
-/*   Updated: 2018/04/07 16:35:38 by rbarbazz         ###   ########.fr       */
+/*   Updated: 2018/04/07 17:48:54 by rbarbazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,14 +40,13 @@ int		save_buffer(char *tmp, char **line, char **save)
 
 	noleak = dup_to_char(tmp, '\n');
 	if (!*save)
-		*line = noleak;
+		*line = ft_strdup(noleak);
 	else
-	{
 		*line = ft_strjoin(*save, noleak);
-		ft_strdel(&noleak);
-	}
+	ft_strdel(&noleak);
 	ft_strdel(save);
-	*save = dup_from_char(tmp, '\n');
+	if (tmp)
+		*save = dup_from_char(tmp, '\n');
 	ft_strdel(&tmp);
 	return (1);
 }
