@@ -6,7 +6,7 @@
 /*   By: rbarbazz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/14 11:47:59 by rbarbazz          #+#    #+#             */
-/*   Updated: 2018/03/16 11:01:00 by rbarbazz         ###   ########.fr       */
+/*   Updated: 2018/04/07 11:13:39 by rbarbazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,10 @@ char	*dup_to_char(char *str, char c)
 	char	*dst;
 
 	i = 0;
-	while (str[i] != c)
-	{
-		if (!str[i])
-			return (NULL);
+	while (str[i] && str[i] != c)
 		i++;
-	}
+	if (!str[i])
+		return (dst = ft_strdup(str));
 	if (!(dst = (char*)malloc(sizeof(char) * i + 1)))
 		return (NULL);
 	j = i;
