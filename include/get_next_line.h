@@ -6,7 +6,7 @@
 /*   By: rbarbazz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/06 10:04:09 by rbarbazz          #+#    #+#             */
-/*   Updated: 2018/04/07 15:20:57 by rbarbazz         ###   ########.fr       */
+/*   Updated: 2018/04/07 18:14:53 by rbarbazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <unistd.h>
 # include "libft.h"
 
-int		get_next_line(const int fd, char **line);
+int	get_next_line(const int fd, char **line);
+int	get_stdin(const int fd, char **line);
 
 #endif

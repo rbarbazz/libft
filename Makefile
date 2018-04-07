@@ -6,7 +6,7 @@
 #    By: rbarbazz <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/09 16:41:38 by rbarbazz          #+#    #+#              #
-#    Updated: 2018/03/21 18:05:03 by rbarbazz         ###   ########.fr        #
+#    Updated: 2018/04/07 18:15:41 by rbarbazz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -77,6 +77,7 @@ SRC_NAME = ft_atoi.c\
 		   strings/ft_strsplit_whitespace.c\
 		   strings/ft_strstrdup.c\
 		   get_next_line.c\
+		   get_stdin.c\
 		   ft_printf/ft_printf.c\
 		   ft_printf/apply_flags.c\
 		   ft_printf/convert_c.c\

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_stdin.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rbarbazz <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: rbarbazz <rbarbazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/06 10:02:45 by rbarbazz          #+#    #+#             */
-/*   Updated: 2018/04/07 18:14:05 by rbarbazz         ###   ########.fr       */
+/*   Created: 2018/04/07 18:14:20 by rbarbazz          #+#    #+#             */
+/*   Updated: 2018/04/07 18:15:17 by rbarbazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,6 @@ static int	save_buffer(char *tmp, char **line, char **save)
 		*line = ft_strjoin(*save, noleak);
 	ft_strdel(&noleak);
 	ft_strdel(save);
-	*save = dup_from_char(tmp, '\n');
 	ft_strdel(&tmp);
 	return (1);
 }
@@ -72,7 +71,7 @@ static int	read_buffer(const int fd, char **line, char **save)
 	return (check_last(tmp, line, save));
 }
 
-int			get_next_line(const int fd, char **line)
+int			get_stdin(const int fd, char **line)
 {
 	static char	*save = NULL;
 	char		*noleak;
