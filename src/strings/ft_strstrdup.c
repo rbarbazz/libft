@@ -6,7 +6,7 @@
 /*   By: rbarbazz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/16 13:41:09 by rbarbazz          #+#    #+#             */
-/*   Updated: 2018/03/16 13:41:38 by rbarbazz         ###   ########.fr       */
+/*   Updated: 2018/04/08 17:34:56 by rbarbazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,12 @@ char	**ft_strstrdup(char **tab)
 	int		i;
 
 	i = 0;
-	while (tab[i])
+	while (tab && tab[i])
 		i++;
-	if (!(res = (char**)malloc(sizeof(char*) * (i + 1))))
+	if (!tab || !(res = (char**)malloc(sizeof(char*) * (i + 1))))
 		return (NULL);
 	i = 0;
-	while (tab[i])
+	while (tab && tab[i])
 	{
 		res[i] = ft_strdup(tab[i]);
 		i++;
