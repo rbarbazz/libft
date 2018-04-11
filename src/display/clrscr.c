@@ -1,25 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoinchar.c                                   :+:      :+:    :+:   */
+/*   clrscr.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rbarbazz <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: rbarbazz <rbarbazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/20 13:02:24 by rbarbazz          #+#    #+#             */
-/*   Updated: 2018/01/10 17:20:32 by rbarbazz         ###   ########.fr       */
+/*   Created: 2018/04/11 17:58:38 by rbarbazz          #+#    #+#             */
+/*   Updated: 2018/04/11 18:01:42 by rbarbazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strjoinchar(char *s1, char const c)
+void	clrscr(void)
 {
-	char	add[2];
-	char	*result;
-
-	add[0] = c;
-	add[1] = '\0';
-	result = ft_strjoin(s1, add);
-	free(s1);
-	return (result);
+	ft_printf("\033[H\033[2J");
 }
