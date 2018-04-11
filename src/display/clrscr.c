@@ -6,13 +6,13 @@
 /*   By: rbarbazz <rbarbazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/11 17:58:38 by rbarbazz          #+#    #+#             */
-/*   Updated: 2018/04/11 18:01:42 by rbarbazz         ###   ########.fr       */
+/*   Updated: 2018/04/11 18:17:19 by rbarbazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	clrscr(void)
+int	clrscr(void)
 {
-	ft_printf("\033[H\033[2J");
+	return (ft_printf("\033[H\033[2J"));
 }
