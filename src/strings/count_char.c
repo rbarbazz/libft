@@ -1,25 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoinchar.c                                   :+:      :+:    :+:   */
+/*   count_char.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rbarbazz <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: rbarbazz <rbarbazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/20 13:02:24 by rbarbazz          #+#    #+#             */
-/*   Updated: 2018/04/13 16:56:38 by rbarbazz         ###   ########.fr       */
+/*   Created: 2018/04/13 16:56:58 by rbarbazz          #+#    #+#             */
+/*   Updated: 2018/04/13 17:04:57 by rbarbazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strjoinchar(char *s1, char const c)
+int	count_char(const char *str, char c)
 {
-	char	add[2];
-	char	*result;
+	int	i;
+	int	res;
 
-	add[0] = c;
-	add[1] = '\0';
-	result = ft_strjoin(s1, add);
-	ft_strdel(&s1);
-	return (result);
+	i = 0;
+	res = 0;
+	while (str && str[i])
+	{
+		if (str[i] == c)
+			res++;
+		i++;
+	}
+	return (res);
 }

@@ -6,7 +6,7 @@
 #    By: rbarbazz <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/09 16:41:38 by rbarbazz          #+#    #+#              #
-#    Updated: 2018/04/13 09:59:20 by rbarbazz         ###   ########.fr        #
+#    Updated: 2018/04/13 17:04:37 by rbarbazz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -54,6 +54,7 @@ SRC_NAME = boolean/ft_isalnum.c\
 		   mem/ft_memmove.c\
 		   mem/ft_memset.c\
 		   mem/strstr_free.c\
+		   strings/count_char.c\
 		   strings/dup_from_char.c\
 		   strings/dup_to_char.c\
 		   strings/ft_reverse.c\
