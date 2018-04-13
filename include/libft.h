@@ -6,7 +6,7 @@
 /*   By: rbarbazz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/09 16:37:58 by rbarbazz          #+#    #+#             */
-/*   Updated: 2018/04/11 18:18:27 by rbarbazz         ###   ########.fr       */
+/*   Updated: 2018/04/13 09:58:33 by rbarbazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,7 @@ void			ft_strclr(char *s);
 void			ft_strdel(char **as);
 void			ft_striter(char *s, void (*f)(char *));
 void			ft_striteri(char *s, void (*f)(unsigned int, char *));
+char			*strdup_wo_c(char *str, char c);
 void			strstr_free(char **str);
 
 #endif

@@ -6,7 +6,7 @@
 #    By: rbarbazz <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/09 16:41:38 by rbarbazz          #+#    #+#              #
-#    Updated: 2018/04/11 18:15:48 by rbarbazz         ###   ########.fr        #
+#    Updated: 2018/04/13 09:59:20 by rbarbazz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -85,6 +85,7 @@ SRC_NAME = boolean/ft_isalnum.c\
 		   strings/ft_strtrim.c\
 		   strings/ft_tolower.c\
 		   strings/ft_toupper.c\
+		   strings/strdup_wo_c.c\
 		   strings/strjoinchar.c\
 		   strings/strsplit_whitespace.c\
 		   strings/strstrdup.c
