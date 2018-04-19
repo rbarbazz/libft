@@ -6,7 +6,7 @@
 /*   By: rbarbazz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/14 18:10:43 by rbarbazz          #+#    #+#             */
-/*   Updated: 2018/03/28 17:23:40 by rbarbazz         ###   ########.fr       */
+/*   Updated: 2018/04/19 13:44:00 by rbarbazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,8 +64,9 @@ char		**ft_strsplit_whitespace(const char *str)
 	char	**res;
 	int		wc;
 
-	wc = count_words(str);
-	if (!str || !wc || !(res = (char**)malloc(sizeof(char*) * (wc + 1))))
+	if (str)
+		wc = count_words(str);
+	if (!str || !(res = (char**)malloc(sizeof(char*) * (wc + 1))))
 		return (NULL);
 	res = copy(res, str, wc);
 	return (res);

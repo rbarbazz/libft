@@ -6,7 +6,7 @@
 /*   By: rbarbazz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/10 11:33:35 by rbarbazz          #+#    #+#             */
-/*   Updated: 2017/11/10 11:40:10 by rbarbazz         ###   ########.fr       */
+/*   Updated: 2018/04/19 13:19:03 by rbarbazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,5 @@
 
 void	ft_bzero(void *s, size_t n)
 {
-	char *t;
-
-	t = s;
-	if (n == 0)
-		return ;
-	while (n > 0)
-	{
-		*t = 0;
-		t++;
-		n--;
-	}
+	ft_memset(s, 0, n);
 }
