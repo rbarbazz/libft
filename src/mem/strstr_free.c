@@ -6,7 +6,7 @@
 /*   By: rbarbazz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/21 18:04:09 by rbarbazz          #+#    #+#             */
-/*   Updated: 2018/03/24 14:34:38 by rbarbazz         ###   ########.fr       */
+/*   Updated: 2018/04/20 18:56:06 by rbarbazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,5 +19,6 @@ void	strstr_free(char **str)
 	i = 0;
 	while (str && str[i])
 		ft_strdel(&str[i++]);
-	ft_memdel((void**)&str);
+	if (str)
+		ft_memdel((void**)&str);
 }
