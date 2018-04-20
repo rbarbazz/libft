@@ -6,7 +6,7 @@
 /*   By: rbarbazz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/15 09:24:49 by rbarbazz          #+#    #+#             */
-/*   Updated: 2018/04/19 13:41:58 by rbarbazz         ###   ########.fr       */
+/*   Updated: 2018/04/20 20:11:22 by rbarbazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,8 @@ static char	**copy(char **res, const char *str, char c, int wc)
 	while (wn < wc)
 	{
 		cn = 0;
-		if (!(res[wn] = (char*)ft_memalloc(sizeof(char) * (ft_strlen(str) + 1))))
+		if (!(res[wn] = (char*)ft_memalloc(sizeof(char) *\
+(ft_strlen(str) + 1))))
 			return (NULL);
 		while (str[i] == c)
 			i++;
