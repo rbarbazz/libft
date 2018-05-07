@@ -6,7 +6,7 @@
 /*   By: rbarbazz <rbarbazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/14 10:01:56 by rbarbazz          #+#    #+#             */
-/*   Updated: 2018/05/07 18:25:34 by rbarbazz         ###   ########.fr       */
+/*   Updated: 2018/05/07 18:38:24 by rbarbazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,12 +42,7 @@ typedef struct		s_arg
 
 int					ft_printf(char const *format, ...);
 int					ft_dprintf(int fd, char const *format, ...);
-int					init_struct(t_arg *arg, int *i);
 
-int					check_format(const char *format, t_arg *arg, int i,\
-		va_list ap);
-int					check_and_convert\
-						(const char *format, t_arg *arg, va_list ap);
 int					check_flags(const char *format, t_arg *arg, int *i);
 int					check_width(const char *format, t_arg *arg, int *i,\
 		va_list ap);
@@ -56,7 +51,6 @@ int					check_precision(const char *format, t_arg *arg, int *i,\
 int					check_length(const char *format, t_arg *arg, int *i);
 int					check_specifier(const char *format, t_arg *arg, int *i);
 
-int					handle_conversion_by_type(va_list ap, t_arg *arg);
 int					check_type_char(va_list ap, t_arg *arg);
 int					check_type_array(va_list ap, t_arg *arg);
 int					check_type_short(va_list ap, t_arg *arg);

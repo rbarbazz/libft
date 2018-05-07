@@ -6,13 +6,13 @@
 /*   By: rbarbazz <rbarbazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/14 11:53:49 by rbarbazz          #+#    #+#             */
-/*   Updated: 2018/05/07 18:23:55 by rbarbazz         ###   ########.fr       */
+/*   Updated: 2018/05/07 18:39:40 by rbarbazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		handle_conversion_by_type(va_list ap, t_arg *arg)
+static int		handle_conversion_by_type(va_list ap, t_arg *arg)
 {
 	if (check_type_char(ap, arg) == 1)
 	{
@@ -39,7 +39,7 @@ int		handle_conversion_by_type(va_list ap, t_arg *arg)
 	return (0);
 }
 
-int		check_format(const char *format, t_arg *arg, int i, va_list ap)
+static int		check_format(const char *format, t_arg *arg, int i, va_list ap)
 {
 	while (check_specifier(format, arg, &i) == 1 && format[i])
 	{
@@ -59,7 +59,25 @@ int		check_format(const char *format, t_arg *arg, int i, va_list ap)
 	return (i);
 }
 
-int		check_and_convert(const char *format, t_arg *arg, va_list ap)
+static int		init_struct(t_arg *arg, int *i)
+{
+	arg->flag = '\0';
+	arg->flag_two = '\0';
+	arg->flag_sharp = '\0';
+	arg->width = 0;
+	arg->prec = -1;
+	arg->length = "";
+	arg->specifier = '\0';
+	arg->s = NULL;
+	arg->p = NULL;
+	arg->ui = 0;
+	arg->uc = '\0';
+	arg->ws = NULL;
+	(*i)++;
+	return (0);
+}
+
+static int		check_and_convert(const char *format, t_arg *arg, va_list ap)
 {
 	int	i;
 
@@ -85,24 +103,6 @@ int		check_and_convert(const char *format, t_arg *arg, va_list ap)
 			i++;
 		}
 	}
-	return (0);
-}
-
-int		init_struct(t_arg *arg, int *i)
-{
-	arg->flag = '\0';
-	arg->flag_two = '\0';
-	arg->flag_sharp = '\0';
-	arg->width = 0;
-	arg->prec = -1;
-	arg->length = "";
-	arg->specifier = '\0';
-	arg->s = NULL;
-	arg->p = NULL;
-	arg->ui = 0;
-	arg->uc = '\0';
-	arg->ws = NULL;
-	(*i)++;
 	return (0);
 }
 
