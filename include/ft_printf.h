@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rbarbazz <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: rbarbazz <rbarbazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/14 10:01:56 by rbarbazz          #+#    #+#             */
-/*   Updated: 2018/03/11 16:28:39 by rbarbazz         ###   ########.fr       */
+/*   Updated: 2018/05/07 18:25:34 by rbarbazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ typedef struct		s_arg
 	int					errorno;
 	int					retc;
 	int					savepr;
+	int					fd;
 	char				*s;
 	unsigned int		*ws;
 	void				*p;
@@ -40,6 +41,7 @@ typedef struct		s_arg
 }					t_arg;
 
 int					ft_printf(char const *format, ...);
+int					ft_dprintf(int fd, char const *format, ...);
 int					init_struct(t_arg *arg, int *i);
 
 int					check_format(const char *format, t_arg *arg, int i,\
@@ -69,8 +71,8 @@ int					convert_int_long(t_arg *arg);
 int					convert_wchar(t_arg *arg);
 int					convert_ws(t_arg *arg);
 int					apply_width(t_arg *arg);
-int					c_nul(t_arg *arg);
 int					calc_length(t_arg *arg);
+int					c_nul(t_arg *arg);
 int					add_wchar3(t_arg *arg, unsigned int mask);
 int					add_wchar4(t_arg *arg, unsigned long long mask);
 int					call_wchar(t_arg *arg, int len);
