@@ -6,7 +6,7 @@
 /*   By: rbarbazz <rbarbazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/14 11:53:49 by rbarbazz          #+#    #+#             */
-/*   Updated: 2018/05/07 18:39:40 by rbarbazz         ###   ########.fr       */
+/*   Updated: 2018/05/14 14:10:01 by rbarbazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,7 +106,7 @@ static int		check_and_convert(const char *format, t_arg *arg, va_list ap)
 	return (0);
 }
 
-int		ft_dprintf(int fd, char const *format, ...)
+int				ft_dprintf(int fd, char const *format, ...)
 {
 	va_list		ap;
 	t_arg		arg;
