@@ -117,7 +117,7 @@ int				convert_s(t_arg *arg)
 	if (arg->flag != '-')
 		apply_width(arg);
 	while (*arg->s && arg->prec--)
-		arg->buffer = ft_strjoinchar(arg->buffer, *arg->s++);
+		arg->buffer = strcatchar(arg->buffer, *arg->s++);
 	apply_width(arg);
 	return (0);
 }

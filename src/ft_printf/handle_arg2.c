@@ -33,24 +33,24 @@ int	check_type_array(va_list ap, t_arg *arg)
 int	add_wchar3(t_arg *arg, unsigned int mask)
 {
 	arg->uc = ((mask << 8) >> 24);
-	arg->buffer = ft_strjoinchar(arg->buffer, arg->uc);
+	arg->buffer = strcatchar(arg->buffer, arg->uc);
 	arg->uc = ((mask << 16) >> 24);
-	arg->buffer = ft_strjoinchar(arg->buffer, arg->uc);
+	arg->buffer = strcatchar(arg->buffer, arg->uc);
 	arg->uc = ((mask << 24) >> 24);
-	arg->buffer = ft_strjoinchar(arg->buffer, arg->uc);
+	arg->buffer = strcatchar(arg->buffer, arg->uc);
 	return (0);
 }
 
 int	add_wchar4(t_arg *arg, unsigned long long mask)
 {
 	arg->uc = (mask >> 24);
-	arg->buffer = ft_strjoinchar(arg->buffer, arg->uc);
+	arg->buffer = strcatchar(arg->buffer, arg->uc);
 	arg->uc = ((mask << 8) >> 24);
-	arg->buffer = ft_strjoinchar(arg->buffer, arg->uc);
+	arg->buffer = strcatchar(arg->buffer, arg->uc);
 	arg->uc = ((mask << 16) >> 24);
-	arg->buffer = ft_strjoinchar(arg->buffer, arg->uc);
+	arg->buffer = strcatchar(arg->buffer, arg->uc);
 	arg->uc = ((mask << 24) >> 24);
-	arg->buffer = ft_strjoinchar(arg->buffer, arg->uc);
+	arg->buffer = strcatchar(arg->buffer, arg->uc);
 	return (0);
 }
 
@@ -66,7 +66,7 @@ int	call_wchar(t_arg *arg, int len)
 		}
 		if (arg->ws && (arg->savepr >= 0 && ((arg->prec--) < 0)))
 			return (0);
-		arg->buffer = ft_strjoinchar(arg->buffer, arg->ui);
+		arg->buffer = strcatchar(arg->buffer, arg->ui);
 	}
 	else if (len >= 8 && len <= 11)
 		wchar2(arg);

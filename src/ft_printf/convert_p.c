@@ -17,9 +17,9 @@ int		apply_width(t_arg *arg)
 	while (arg->width-- > 0)
 	{
 		if (arg->flag == '0')
-			arg->buffer = ft_strjoinchar(arg->buffer, '0');
+			arg->buffer = strcatchar(arg->buffer, '0');
 		else
-			arg->buffer = ft_strjoinchar(arg->buffer, ' ');
+			arg->buffer = strcatchar(arg->buffer, ' ');
 	}
 	return (0);
 }
@@ -40,11 +40,11 @@ int		convert_p(t_arg *arg)
 	if (!arg->flag)
 		apply_width(arg);
 	while (*nul)
-		arg->buffer = ft_strjoinchar(arg->buffer, *nul++);
+		arg->buffer = strcatchar(arg->buffer, *nul++);
 	if (!arg->p)
-		arg->buffer = ft_strjoinchar(arg->buffer, '0');
+		arg->buffer = strcatchar(arg->buffer, '0');
 	while (arg->p && *ptr)
-		arg->buffer = ft_strjoinchar(arg->buffer, *ptr++);
+		arg->buffer = strcatchar(arg->buffer, *ptr++);
 	apply_width(arg);
 	free(itoa);
 	return (0);

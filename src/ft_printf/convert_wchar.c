@@ -52,9 +52,9 @@ int		wchar2(t_arg *arg)
 	arg->ui = (((c << 21) >> 27) << 8);
 	mask |= arg->ui;
 	arg->uc = ((mask << 16) >> 24);
-	arg->buffer = ft_strjoinchar(arg->buffer, arg->uc);
+	arg->buffer = strcatchar(arg->buffer, arg->uc);
 	arg->uc = ((mask << 24) >> 24);
-	arg->buffer = ft_strjoinchar(arg->buffer, arg->uc);
+	arg->buffer = strcatchar(arg->buffer, arg->uc);
 	return (0);
 }
 

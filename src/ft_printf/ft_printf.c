@@ -99,7 +99,7 @@ static int		check_and_convert(const char *format, t_arg *arg, va_list ap)
 		}
 		else
 		{
-			arg->buffer = ft_strjoinchar(arg->buffer, format[i]);
+			arg->buffer = strcatchar(arg->buffer, format[i]);
 			i++;
 		}
 	}

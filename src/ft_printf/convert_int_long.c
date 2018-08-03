@@ -15,7 +15,7 @@
 static int	apply_precision(t_arg *arg)
 {
 	while (arg->prec-- > 0)
-		arg->buffer = ft_strjoinchar(arg->buffer, '0');
+		arg->buffer = strcatchar(arg->buffer, '0');
 	return (0);
 }
 
@@ -23,7 +23,7 @@ static int	apply_flags(t_arg *arg)
 {
 	if (arg->flag_sharp && arg->itoaed[0] != '0' && (arg->specifier == 'o' || \
 				arg->specifier == 'O'))
-		arg->buffer = ft_strjoinchar(arg->buffer, '0');
+		arg->buffer = strcatchar(arg->buffer, '0');
 	else if (arg->flag_sharp && arg->itoaed[0] != '0' && (arg->specifier == 'x'\
 				|| arg->specifier == 'X'))
 	{
@@ -33,9 +33,9 @@ static int	apply_flags(t_arg *arg)
 			arg->buffer = ft_strcat(arg->buffer, "0X");
 	}
 	if (arg->flag_two == '+' && !ft_strchr("uUoOxX", arg->specifier))
-		arg->buffer = ft_strjoinchar(arg->buffer, '+');
+		arg->buffer = strcatchar(arg->buffer, '+');
 	else if (arg->flag_two == ' ' && arg->specifier != 'u')
-		arg->buffer = ft_strjoinchar(arg->buffer, ' ');
+		arg->buffer = strcatchar(arg->buffer, ' ');
 	return (0);
 }
 
@@ -78,7 +78,7 @@ int			convert_int_long(t_arg *arg)
 		apply_width(arg);
 	if (arg->itoaed[0] == '-')
 	{
-		arg->buffer = ft_strjoinchar(arg->buffer, '-');
+		arg->buffer = strcatchar(arg->buffer, '-');
 		ft_memmove(arg->itoaed, arg->itoaed + 1, ft_strlen(arg->itoaed + 1)\
 	+ 1);
 	}
@@ -91,7 +91,7 @@ int			convert_int_long(t_arg *arg)
 					arg->specifier == 'X') && arg->flag_sharp))
 		return (0);
 	while (*arg->itoaed)
-		arg->buffer = ft_strjoinchar(arg->buffer, *arg->itoaed++);
+		arg->buffer = strcatchar(arg->buffer, *arg->itoaed++);
 	apply_width(arg);
 	return (0);
 }

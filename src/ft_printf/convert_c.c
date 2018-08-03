@@ -32,9 +32,9 @@ int			convert_c(t_arg *arg)
 	else if (arg->flag != '-')
 		apply_width(arg);
 	if (arg->specifier == '%')
-		arg->buffer = ft_strjoinchar(arg->buffer, '%');
+		arg->buffer = strcatchar(arg->buffer, '%');
 	else
-		arg->buffer = ft_strjoinchar(arg->buffer, arg->uc);
+		arg->buffer = strcatchar(arg->buffer, arg->uc);
 	apply_width(arg);
 	arg->retc = ft_strlen(arg->buffer);
 	return (0);
