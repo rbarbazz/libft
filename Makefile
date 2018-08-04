@@ -6,7 +6,7 @@
 #    By: rbarbazz <rbarbazz@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/09 16:41:38 by rbarbazz          #+#    #+#              #
-#    Updated: 2018/08/03 16:30:33 by rbarbazz         ###   ########.fr        #
+#    Updated: 2018/08/04 18:00:38 by rbarbazz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,8 @@ NAME = libft.a
 
 SRC_PATH = src
 
-SRC_NAME = boolean/ft_isalnum.c\
+SRC_NAME = atoull.c\
+		   boolean/ft_isalnum.c\
 		   boolean/ft_isalpha.c\
 		   boolean/ft_isascii.c\
 		   boolean/ft_isdigit.c\
