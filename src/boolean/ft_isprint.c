@@ -14,8 +14,6 @@
 
 int	ft_isprint(int c)
 {
-	if (c == ' ')
-		return (1);
 	if (c <= 126 && c >= 33)
 		return (1);
 	return (0);
