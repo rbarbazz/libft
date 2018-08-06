@@ -3,92 +3,68 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rbarbazz <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: rbarbazz <rbarbazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/06 10:02:45 by rbarbazz          #+#    #+#             */
-/*   Updated: 2018/04/07 18:14:05 by rbarbazz         ###   ########.fr       */
+/*   Updated: 2018/08/06 23:29:44 by rbarbazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-static int	check_last(char *tmp, char **line, char **save)
+static int	check_line(int *last, char **save, char **line)
 {
-	if (*tmp && ft_strchr(tmp, '\0'))
+	char	*tmp;
+
+	if (ft_strchr(*save, '\n'))
 	{
-		if (*save)
-			*line = ft_strjoin(*save, tmp);
-		else
-			*line = tmp;
-		ft_strdel(save);
+		tmp = *save;
+		*line = dup_to_char(*save, '\n');
+		*save = dup_from_char(*save, '\n');
+		ft_strdel(&tmp);
+		if (!*save || !*save[0])
+			*last = 1;
 		return (1);
 	}
-	else if (*save && *save[0] && ft_strchr(*save, '\0'))
-	{
-		*line = *save;
-		ft_strdel(save);
-		return (1);
-	}
+	*line = ft_strdup(*save);
 	ft_strdel(save);
-	ft_strdel(&tmp);
-	return (0);
-}
-
-static int	save_buffer(char *tmp, char **line, char **save)
-{
-	char	*noleak;
-
-	noleak = dup_to_char(tmp, '\n');
-	if (!*save)
-		*line = ft_strdup(noleak);
-	else
-		*line = ft_strjoin(*save, noleak);
-	ft_strdel(&noleak);
-	ft_strdel(save);
-	*save = dup_from_char(tmp, '\n');
-	ft_strdel(&tmp);
+	*last = 1;
 	return (1);
 }
 
-static int	read_buffer(const int fd, char **line, char **save)
+static char	*read_buffer(int *err, const int fd, char **save)
 {
-	char	*noleak;
+	char	buf[BUFF_SIZE];
 	int		ret;
-	char	buf[BUFF_SIZE + 1];
 	char	*tmp;
 
 	tmp = ft_strnew(0);
 	while ((ret = read(fd, buf, BUFF_SIZE)) > 0)
 	{
 		buf[ret] = '\0';
-		noleak = ft_strjoin(tmp, buf);
+		*save = ft_strjoin(tmp, buf);
 		ft_strdel(&tmp);
-		tmp = noleak;
-		if (ft_strchr(buf, '\n'))
-			return (save_buffer(tmp, line, save));
+		tmp = *save;
 	}
 	if (ret < 0)
-		return (-1);
-	return (check_last(tmp, line, save));
+		*err = -1;
+	return (*save);
 }
 
 int			get_next_line(const int fd, char **line)
 {
 	static char	*save = NULL;
-	char		*noleak;
+	static int	last = 0;
+	int			err;
 
+	err = 0;
 	if (fd < 0 || !line || BUFF_SIZE < 0)
 		return (-1);
-	if (save)
-	{
-		if (ft_strchr(save, '\n'))
-		{
-			noleak = save;
-			*line = dup_to_char(save, '\n');
-			save = dup_from_char(save, '\n');
-			ft_strdel(&noleak);
-			return (1);
-		}
-	}
-	return (read_buffer(fd, line, &save));
+	if (last == 1)
+		return (0);
+	if (!save)
+		save = read_buffer(&err, fd, &save);
+	if (err < 0)
+		return (err);
+	return (check_line(&last, &save, line));
 }

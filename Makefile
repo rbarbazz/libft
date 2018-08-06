@@ -6,7 +6,7 @@
 #    By: rbarbazz <rbarbazz@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/09 16:41:38 by rbarbazz          #+#    #+#              #
-#    Updated: 2018/08/04 18:00:38 by rbarbazz         ###   ########.fr        #
+#    Updated: 2018/08/06 23:34:40 by rbarbazz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -124,6 +124,10 @@ $(NAME): $(OBJ)
 $(OBJ_PATH)/%.o: $(SRC_PATH)/%.c
 	@mkdir -p obj/ft_printf obj/ft_dprintf obj/strings obj/boolean obj/display obj/lists obj/mem
 	$(CC) $(CFLAGS) $(CPPFLAGS) -o $@ -c $<
+
+norme:
+	norminette $(SRC)
+	norminette include/*.h
 
 clean:
 	rm -rf obj
