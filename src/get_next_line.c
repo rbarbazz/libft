@@ -6,7 +6,7 @@
 /*   By: rbarbazz <rbarbazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/06 10:02:45 by rbarbazz          #+#    #+#             */
-/*   Updated: 2018/08/06 23:29:44 by rbarbazz         ###   ########.fr       */
+/*   Updated: 2018/08/06 23:44:11 by rbarbazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,10 @@ int			get_next_line(const int fd, char **line)
 	if (fd < 0 || !line || BUFF_SIZE < 0)
 		return (-1);
 	if (last == 1)
+	{
+		ft_strdel(&save);
 		return (0);
+	}
 	if (!save)
 		save = read_buffer(&err, fd, &save);
 	if (err < 0)
