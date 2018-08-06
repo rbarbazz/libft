@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   dup_from_char.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rbarbazz <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: rbarbazz <rbarbazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/14 11:49:00 by rbarbazz          #+#    #+#             */
-/*   Updated: 2018/04/07 11:04:34 by rbarbazz         ###   ########.fr       */
+/*   Updated: 2018/08/06 18:03:46 by rbarbazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ char	*dup_from_char(char *str, char c)
 
 	i = 0;
 	dst = NULL;
-	while (str[i] && str[i] != c)
+	while (str && str[i] && str[i] != c)
 		i++;
-	if (str[i])
+	if (str && str[i])
 		dst = ft_strdup(str + i + 1);
 	return (dst);
 }
