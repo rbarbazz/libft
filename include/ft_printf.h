@@ -6,15 +6,15 @@
 /*   By: rbarbazz <rbarbazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/14 10:01:56 by rbarbazz          #+#    #+#             */
-/*   Updated: 2018/05/07 18:38:24 by rbarbazz         ###   ########.fr       */
+/*   Updated: 2018/08/07 00:35:56 by rbarbazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
-# include "libft.h"
 # include <limits.h>
 # include <stdarg.h>
+# include "libft.h"
 
 typedef struct		s_arg
 {

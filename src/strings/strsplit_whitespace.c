@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strsplit_whitespace.c                           :+:      :+:    :+:   */
+/*   strsplit_whitespace.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rbarbazz <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: rbarbazz <rbarbazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/14 18:10:43 by rbarbazz          #+#    #+#             */
-/*   Updated: 2018/04/19 13:44:00 by rbarbazz         ###   ########.fr       */
+/*   Updated: 2018/08/07 00:35:14 by rbarbazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ static char	**copy(char **res, const char *str, int wc)
 	while (wn < wc)
 	{
 		cn = 0;
-		if (!(res[wn] = (char*)malloc(sizeof(char) * (ft_strlen(str) + 1))))
+		if (!(res[wn] = (char*)ft_memalloc(sizeof(char) * (ft_strlen(str) + 1))))
 			return (NULL);
 		while (str[i] == 32 || str[i] == 9 || str[i] == 10)
 			i++;
@@ -59,14 +59,14 @@ static char	**copy(char **res, const char *str, int wc)
 	return (res);
 }
 
-char		**ft_strsplit_whitespace(const char *str)
+char		**strsplit_whitespace(const char *str)
 {
 	char	**res;
 	int		wc;
 
 	if (str)
 		wc = count_words(str);
-	if (!str || !(res = (char**)malloc(sizeof(char*) * (wc + 1))))
+	if (!str || !(res = (char**)ft_memalloc(sizeof(char*) * (wc + 1))))
 		return (NULL);
 	res = copy(res, str, wc);
 	return (res);
