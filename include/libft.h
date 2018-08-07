@@ -6,7 +6,7 @@
 /*   By: rbarbazz <rbarbazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/09 16:37:58 by rbarbazz          #+#    #+#             */
-/*   Updated: 2018/08/07 00:36:07 by rbarbazz         ###   ########.fr       */
+/*   Updated: 2018/08/07 02:05:08 by rbarbazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ typedef struct		s_list
 	struct s_list	*next;
 }					t_list;
 
+int					is_number(char *str);
 char				**strsplit_whitespace(const char *str);
 char				**ft_strsplit(char const *s, char c);
 char				**ft_strstrdup(char **tab);

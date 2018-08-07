@@ -6,7 +6,7 @@
 #    By: rbarbazz <rbarbazz@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/09 16:41:38 by rbarbazz          #+#    #+#              #
-#    Updated: 2018/08/06 23:34:40 by rbarbazz         ###   ########.fr        #
+#    Updated: 2018/08/07 02:05:33 by rbarbazz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,6 +20,7 @@ SRC_NAME = atoull.c\
 		   boolean/ft_isascii.c\
 		   boolean/ft_isdigit.c\
 		   boolean/ft_isprint.c\
+		   boolean/is_number.c\
 		   display/clrscr.c\
 		   display/ft_putchar.c\
 		   display/ft_putchar_fd.c\
