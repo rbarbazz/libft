@@ -16,7 +16,7 @@ static int	check_line(int *last, char **save, char **line)
 {
 	char	*tmp;
 
-	if (ft_strchr(*save, '\n'))
+	if (save && *save && ft_strchr(*save, '\n'))
 	{
 		tmp = *save;
 		*line = dup_to_char(*save, '\n');
