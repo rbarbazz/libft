@@ -46,7 +46,7 @@ static char	*read_buffer(int *err, const int fd, char **save)
 		ft_strdel(&tmp);
 		tmp = *save;
 	}
-	if (tmp)
+	if (tmp && !tmp[0])
 		ft_strdel(&tmp);
 	if (ret < 0)
 		*err = -1;
