@@ -6,7 +6,7 @@
 /*   By: rbarbazz <rbarbazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/14 11:53:49 by rbarbazz          #+#    #+#             */
-/*   Updated: 2018/05/14 14:09:46 by rbarbazz         ###   ########.fr       */
+/*   Updated: 2018/08/27 18:37:25 by rbarbazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,6 +130,6 @@ int				ft_printf(char const *format, ...)
 	}
 	if (arg.errorno == 1)
 		arg.ret = 0;
-	free(arg.buffer);
+	ft_strdel(&arg.buffer);
 	return (arg.ret);
 }

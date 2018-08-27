@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   convert_p.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rbarbazz <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: rbarbazz <rbarbazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/04 09:47:24 by rbarbazz          #+#    #+#             */
-/*   Updated: 2018/03/08 16:14:35 by rbarbazz         ###   ########.fr       */
+/*   Updated: 2018/08/27 18:38:42 by rbarbazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,6 @@ int		convert_p(t_arg *arg)
 	while (arg->p && *ptr)
 		arg->buffer = strcatchar(arg->buffer, *ptr++);
 	apply_width(arg);
-	free(itoa);
+	ft_strdel(&itoa);
 	return (0);
 }

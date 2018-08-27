@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_format.c                                     :+:      :+:    :+:   */
+/*   apply_flags.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rbarbazz <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: rbarbazz <rbarbazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/14 16:51:51 by rbarbazz          #+#    #+#             */
-/*   Updated: 2018/03/11 17:24:25 by rbarbazz         ###   ########.fr       */
+/*   Updated: 2018/08/27 18:57:54 by rbarbazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,20 +44,20 @@ int		check_width(const char *format, t_arg *arg, int *i, va_list ap)
 		(*i)++;
 		return (0);
 	}
-	tmp = ft_memalloc(ft_strlen(format));
+	if (!(tmp = ft_memalloc(ft_strlen(format))))
+		exit(1);
 	while (ft_isdigit(format[*i]))
 	{
 		tmp[itmp] = format[*i++];
 		itmp++;
 	}
-	tmp[itmp] = '\0';
 	if (!*tmp)
 	{
-		free(tmp);
+		ft_strdel(&tmp);
 		return (1);
 	}
 	arg->width = ft_atoi(tmp);
-	free(tmp);
+	ft_strdel(&tmp);
 	return (0);
 }
 
@@ -75,14 +75,15 @@ int		check_precision(const char *format, t_arg *arg, int *i, va_list ap)
 			(*i)++;
 			return (0);
 		}
-		tmp = ft_memalloc(ft_strlen(format));
+		if (!(tmp = ft_memalloc(ft_strlen(format))))
+			exit(1);
 		while (ft_isdigit(format[*i]))
 			tmp[itmp++] = format[(*i)++];
 		tmp[itmp] = '\0';
 		if (!*tmp)
 			arg->prec = 0;
 		arg->prec = ft_atoi(tmp);
-		free(tmp);
+		ft_strdel(&tmp);
 		return (0);
 	}
 	return (1);
