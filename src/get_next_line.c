@@ -6,7 +6,7 @@
 /*   By: rbarbazz <rbarbazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/06 10:02:45 by rbarbazz          #+#    #+#             */
-/*   Updated: 2018/08/06 23:44:11 by rbarbazz         ###   ########.fr       */
+/*   Updated: 2018/08/28 16:16:26 by rbarbazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,15 @@ static int	check_line(int *last, char **save, char **line)
 	if (save && *save && ft_strchr(*save, '\n'))
 	{
 		tmp = *save;
-		*line = dup_to_char(*save, '\n');
-		*save = dup_from_char(*save, '\n');
+		if (!(*line = dup_to_char(*save, '\n')) || !(*save = dup_from_char(*save, '\n')))
+		return (0);
 		ft_strdel(&tmp);
 		if (!*save || !*save[0])
 			*last = 1;
 		return (1);
 	}
-	*line = ft_strdup(*save);
+	if (!(*line = ft_strdup(*save)))
+		return (0);
 	ft_strdel(save);
 	*last = 1;
 	return (1);
