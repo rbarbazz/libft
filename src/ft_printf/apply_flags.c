@@ -6,7 +6,7 @@
 /*   By: rbarbazz <rbarbazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/14 16:51:51 by rbarbazz          #+#    #+#             */
-/*   Updated: 2018/08/30 10:20:14 by rbarbazz         ###   ########.fr       */
+/*   Updated: 2018/08/30 16:23:42 by rbarbazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,14 +44,11 @@ int		check_width(const char *format, t_arg *arg, int *i, va_list ap)
 		(*i)++;
 		return (0);
 	}
-	if (!(tmp = ft_memalloc(ft_strlen(format))))
-		exit(1);
+	if (!(tmp = ft_strnew(ft_strlen(format))))
+		exit(EXIT_FAILURE);
 	while (format && format[*i] && ft_isdigit(format[*i]))
-	{
-		tmp[itmp] = format[(*i)++];
-		itmp++;
-	}
-	if (!*tmp)
+		tmp[itmp++] = format[(*i)++];
+	if (!tmp[0])
 	{
 		ft_strdel(&tmp);
 		return (1);
@@ -75,11 +72,11 @@ int		check_precision(const char *format, t_arg *arg, int *i, va_list ap)
 			(*i)++;
 			return (0);
 		}
-		if (!(tmp = ft_memalloc(ft_strlen(format))))
-			exit(1);
+		if (!(tmp = ft_strnew(ft_strlen(format))))
+			exit(EXIT_FAILURE);
 		while (format && format[*i] && ft_isdigit(format[*i]))
 			tmp[itmp++] = format[(*i)++];
-		if (!*tmp)
+		if (!tmp[0])
 			arg->prec = 0;
 		arg->prec = ft_atoi(tmp);
 		ft_strdel(&tmp);

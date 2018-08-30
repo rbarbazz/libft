@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   handle_arg2.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rbarbazz <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: rbarbazz <rbarbazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/24 18:10:07 by rbarbazz          #+#    #+#             */
-/*   Updated: 2018/03/08 16:15:16 by rbarbazz         ###   ########.fr       */
+/*   Updated: 2018/08/30 16:32:55 by rbarbazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	check_type_array(va_list ap, t_arg *arg)
 {
 	if (arg->specifier == 'S' || (arg->specifier == 's' &&\
-				!ft_strcmp(arg->length, "l")))
+	!ft_strcmp(arg->length, "l")))
 	{
 		arg->ws = va_arg(ap, unsigned int*);
 		convert_ws(arg);
@@ -82,17 +82,18 @@ int	check_type_long2(va_list ap, t_arg *arg)
 	char *itoa;
 
 	if (arg->specifier == 'O' || (arg->specifier == 'o' &&\
-				ft_strcmp(arg->length, "h") && ft_strcmp(arg->length, "") &&\
-				ft_strcmp(arg->length, "hh")))
+	ft_strcmp(arg->length, "h") && ft_strcmp(arg->length, "") &&\
+	ft_strcmp(arg->length, "hh")))
 		itoa = ft_itoa_u(va_arg(ap, unsigned long long), 8, 0);
 	else if (arg->specifier == 'U' || (arg->specifier == 'u' &&\
-				ft_strcmp(arg->length, "h") && ft_strcmp(arg->length, "") &&\
-				ft_strcmp(arg->length, "hh")))
+	ft_strcmp(arg->length, "h") && ft_strcmp(arg->length, "") &&\
+	ft_strcmp(arg->length, "hh")))
 		itoa = ft_itoa_u(va_arg(ap, unsigned long long), 10, 0);
 	else
 		return (1);
-	arg->itoaed = itoa;
+	if (!(arg->itoaed = itoa))
+		exit(EXIT_FAILURE);
 	convert_int_long(arg);
-	free(itoa);
+	ft_strdel(&itoa);
 	return (0);
 }

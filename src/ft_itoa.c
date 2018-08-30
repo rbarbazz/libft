@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rbarbazz <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: rbarbazz <rbarbazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/15 09:36:23 by rbarbazz          #+#    #+#             */
-/*   Updated: 2018/01/12 17:31:12 by rbarbazz         ###   ########.fr       */
+/*   Updated: 2018/08/30 11:18:47 by rbarbazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ char	*ft_itoa_u(uintmax_t n, int base, int maj)
 	int		size;
 
 	size = nbr_len_u(n, base);
-	if (!(res = malloc(sizeof(*res) * (size + 1))))
+	if (!(res = ft_memalloc(sizeof(*res) * (size + 1))))
 		return (NULL);
 	res[size] = 0;
 	while (size-- >= 1)
@@ -59,8 +59,9 @@ char	*ft_itoa(intmax_t n, int base, int maj)
 	if (n < 0)
 	{
 		tmp = ft_itoa_u(-n, base, maj);
-		res = ft_strjoin("-", tmp);
-		free(tmp);
+		if (!(res = ft_strjoin("-", tmp)))
+			return (NULL);
+		ft_strdel(&tmp);
 	}
 	else
 		res = ft_itoa_u(n, base, maj);

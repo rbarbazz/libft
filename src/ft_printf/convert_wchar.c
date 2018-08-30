@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   convert_wchar.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rbarbazz <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: rbarbazz <rbarbazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/14 13:27:45 by rbarbazz          #+#    #+#             */
-/*   Updated: 2018/03/08 16:14:49 by rbarbazz         ###   ########.fr       */
+/*   Updated: 2018/08/30 16:13:50 by rbarbazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,7 +120,7 @@ int		convert_wchar(t_arg *arg)
 	if (arg->error == 1)
 		return (1);
 	if ((MB_CUR_MAX == 1 && len >= 8 && arg->ui > 255) || (arg->ui <= 57343 &&\
-				arg->ui >= 55296) || arg->ui > 1114111)
+	arg->ui >= 55296) || arg->ui > 1114111)
 	{
 		arg->error = 1;
 		return (1);

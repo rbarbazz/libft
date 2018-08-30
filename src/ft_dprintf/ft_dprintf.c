@@ -6,7 +6,7 @@
 /*   By: rbarbazz <rbarbazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/14 11:53:49 by rbarbazz          #+#    #+#             */
-/*   Updated: 2018/08/27 19:13:45 by rbarbazz         ###   ########.fr       */
+/*   Updated: 2018/08/30 16:57:35 by rbarbazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,17 +41,17 @@ static int		handle_conversion_by_type(va_list ap, t_arg *arg)
 
 static int		check_format(const char *format, t_arg *arg, int i, va_list ap)
 {
-	while (format[i] && check_specifier(format, arg, &i) == 1)
+	while (format && format[i] && check_specifier(format, arg, &i) == 1)
 	{
 		if (check_flags(format, arg, &i) == 1 && \
-				check_width(format, arg, &i, ap) == 1 && \
-				check_precision(format, arg, &i, ap) == 1 && \
-				check_length(format, arg, &i) == 1)
+		check_width(format, arg, &i, ap) == 1 && \
+		check_precision(format, arg, &i, ap) == 1 && \
+		check_length(format, arg, &i) == 1)
 		{
 			check_specifier(format, arg, &i);
 			break ;
 		}
-		while (format[i] && ft_isprint(format[i]) == 0)
+		while (format && format[i] && !ft_isprint(format[i]))
 			i++;
 	}
 	if (arg->prec >= 0 && arg->flag == '0' && arg->specifier != '%')
@@ -108,12 +108,13 @@ static int		check_and_convert(const char *format, t_arg *arg, va_list ap)
 
 int				ft_dprintf(int fd, char const *format, ...)
 {
-	va_list		ap;
-	t_arg		arg;
+	va_list	ap;
+	t_arg	arg;
 
 	if (!format)
 		return (-1);
-	arg.buffer = ft_strnew(0);
+	if (!(arg.buffer = ft_strnew(1)))
+		exit(EXIT_FAILURE);
 	arg.error = 0;
 	arg.errorno = 0;
 	arg.retc = 0;
@@ -122,7 +123,7 @@ int				ft_dprintf(int fd, char const *format, ...)
 	arg.errorno = check_and_convert(format, &arg, ap);
 	va_end(ap);
 	if (arg.error == 0)
-		arg.ret = write(arg.fd, arg.buffer, ft_strlen(arg.buffer)) + arg.ret;
+		arg.ret += write(arg.fd, arg.buffer, ft_strlen(arg.buffer));
 	else
 	{
 		arg.ret = -1;

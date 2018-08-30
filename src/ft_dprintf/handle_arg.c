@@ -6,7 +6,7 @@
 /*   By: rbarbazz <rbarbazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/16 12:39:08 by rbarbazz          #+#    #+#             */
-/*   Updated: 2018/08/27 18:39:25 by rbarbazz         ###   ########.fr       */
+/*   Updated: 2018/08/30 16:28:53 by rbarbazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ int	check_type_int(va_list ap, t_arg *arg)
 {
 	char *itoa;
 
+	itoa = NULL;
 	if (ft_strchr("id", arg->specifier) && !ft_strcmp("", arg->length))
 		itoa = ft_itoa(va_arg(ap, int), 10, 0);
 	else if (ft_strchr("id", arg->specifier) && !ft_strcmp("h", arg->length))
@@ -33,7 +34,8 @@ int	check_type_int(va_list ap, t_arg *arg)
 		itoa = ft_itoa_u(va_arg(ap, unsigned int), 8, 0);
 	else
 		return (1);
-	arg->itoaed = itoa;
+	if (!(arg->itoaed = itoa))
+		exit(EXIT_FAILURE);
 	convert_int_long(arg);
 	ft_strdel(&itoa);
 	return (0);
@@ -43,21 +45,23 @@ int	check_type_long(va_list ap, t_arg *arg)
 {
 	char *itoa;
 
+	itoa = NULL;
 	if ((ft_strchr("di", arg->specifier) && (!ft_strcmp(arg->length, "j") ||\
-				!ft_strcmp(arg->length, "ll") || !ft_strcmp(arg->length,\
-					"l"))) || ft_strchr("D", arg->specifier))
+	!ft_strcmp(arg->length, "ll") || !ft_strcmp(arg->length,"l"))) ||\
+	ft_strchr("D", arg->specifier))
 		itoa = ft_itoa(va_arg(ap, long long), 10, 0);
 	else if (ft_strchr("di", arg->specifier) && !ft_strcmp(arg->length, "z"))
 		itoa = ft_itoa(va_arg(ap, unsigned long long), 10, 0);
 	else if (arg->specifier == 'x' && (ft_strcmp("h", arg->length) &&\
-				ft_strcmp("hh", arg->length) && ft_strcmp("", arg->length)))
+	ft_strcmp("hh", arg->length) && ft_strcmp("", arg->length)))
 		itoa = ft_itoa_u(va_arg(ap, unsigned long long), 16, 0);
 	else if (arg->specifier == 'X' && (ft_strcmp("h", arg->length) &&\
-				ft_strcmp("hh", arg->length)) && ft_strcmp("", arg->length))
+	ft_strcmp("hh", arg->length)) && ft_strcmp("", arg->length))
 		itoa = ft_itoa_u(va_arg(ap, unsigned long long), 16, 1);
 	else
 		return (1);
-	arg->itoaed = itoa;
+	if (!(arg->itoaed = itoa))
+		exit(EXIT_FAILURE);
 	convert_int_long(arg);
 	ft_strdel(&itoa);
 	return (0);
@@ -66,7 +70,7 @@ int	check_type_long(va_list ap, t_arg *arg)
 int	check_type_char(va_list ap, t_arg *arg)
 {
 	if (arg->specifier == 'C' || (arg->specifier == 'c' &&\
-				!ft_strcmp(arg->length, "l")))
+	!ft_strcmp(arg->length, "l")))
 	{
 		arg->ui = va_arg(ap, unsigned int);
 		convert_wchar(arg);
@@ -86,6 +90,7 @@ int	check_type_short(va_list ap, t_arg *arg)
 {
 	char *itoa;
 
+	itoa = NULL;
 	if (!ft_strcmp(arg->length, "hh"))
 	{
 		if (ft_strchr("id", arg->specifier))
@@ -103,7 +108,8 @@ int	check_type_short(va_list ap, t_arg *arg)
 		itoa = ft_itoa_u((unsigned short)va_arg(ap, unsigned int), 8, 0);
 	else
 		return (1);
-	arg->itoaed = itoa;
+	if (!(arg->itoaed = itoa))
+		exit(EXIT_FAILURE);
 	convert_int_long(arg);
 	ft_strdel(&itoa);
 	return (0);

@@ -6,7 +6,7 @@
 /*   By: rbarbazz <rbarbazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/14 16:51:51 by rbarbazz          #+#    #+#             */
-/*   Updated: 2018/08/30 10:30:45 by rbarbazz         ###   ########.fr       */
+/*   Updated: 2018/08/30 16:23:58 by rbarbazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int			c_nul(t_arg *arg)
 	write(1, "\0", 1);
 	arg->ret++;
 	if (!(arg->buffer = ft_strnew(1)))
-		exit(1);
+		exit(EXIT_FAILURE);
 	apply_width(arg);
 	return (0);
 }

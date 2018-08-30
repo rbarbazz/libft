@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   convert_s.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rbarbazz <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: rbarbazz <rbarbazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/14 16:51:51 by rbarbazz          #+#    #+#             */
-/*   Updated: 2018/03/08 16:14:42 by rbarbazz         ###   ########.fr       */
+/*   Updated: 2018/08/30 16:11:55 by rbarbazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,12 @@ static int		ft_wstrlenprec(t_arg *arg, int len)
 	int	i;
 
 	i = 0;
-	while (arg->ws[i])
+	while (arg->ws && arg->ws[i])
 	{
 		arg->ui = arg->ws[i++];
 		lenchar = calc_length(arg);
-		if (lenchar <= 7 || (arg->ui <= 255 && arg->ui >= 127 && MB_CUR_MAX ==\
-					1))
+		if (lenchar <= 7 || (arg->ui <= 255 && arg->ui >= 127 &&\
+		MB_CUR_MAX == 1))
 		{
 			len++;
 			arg->prec--;
@@ -51,8 +51,8 @@ static int		ft_wstrlen(t_arg *arg, int len)
 	{
 		arg->ui = arg->ws[i++];
 		lenchar = calc_length(arg);
-		if (lenchar <= 7 || (arg->ui <= 255 && arg->ui >= 127 && MB_CUR_MAX ==\
-					1))
+		if (lenchar <= 7 || (arg->ui <= 255 && arg->ui >= 127 &&\
+		MB_CUR_MAX == 1))
 			len++;
 		else if (lenchar >= 8 && lenchar <= 11)
 			len += 2;
@@ -66,9 +66,12 @@ static int		ft_wstrlen(t_arg *arg, int len)
 
 static int		add_ws(t_arg *arg)
 {
-	while (*arg->ws && arg->prec)
+	int	i;
+
+	i = 0;
+	while (arg->ws && arg->ws[i] && arg->prec)
 	{
-		arg->ui = *arg->ws++;
+		arg->ui = arg->ws[i++];
 		convert_wchar(arg);
 	}
 	return (0);
@@ -80,7 +83,7 @@ int				convert_ws(t_arg *arg)
 
 	len = 0;
 	arg->savepr = arg->prec;
-	if (arg->ws == NULL)
+	if (!arg->ws)
 	{
 		convert_s(arg);
 		return (0);
@@ -105,9 +108,11 @@ int				convert_s(t_arg *arg)
 {
 	char	*nul;
 	int		len;
+	int		i;
 
 	nul = "(null)";
-	if (arg->s == NULL)
+	i = 0;
+	if (!arg->s)
 		arg->s = nul;
 	len = (int)ft_strlen(arg->s);
 	if (arg->prec < 0 || arg->prec > arg->width || arg->prec > len)
@@ -116,8 +121,8 @@ int				convert_s(t_arg *arg)
 		arg->width -= arg->prec;
 	if (arg->flag != '-')
 		apply_width(arg);
-	while (*arg->s && arg->prec--)
-		arg->buffer = strcatchar(arg->buffer, *arg->s++);
+	while (arg->s && arg->s[i] && arg->prec--)
+		arg->buffer = strcatchar(arg->buffer, arg->s[i++]);
 	apply_width(arg);
 	return (0);
 }

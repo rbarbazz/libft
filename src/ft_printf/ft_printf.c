@@ -6,7 +6,7 @@
 /*   By: rbarbazz <rbarbazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/14 11:53:49 by rbarbazz          #+#    #+#             */
-/*   Updated: 2018/05/14 14:09:46 by rbarbazz         ###   ########.fr       */
+/*   Updated: 2018/08/30 16:57:17 by rbarbazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,17 +41,17 @@ static int		handle_conversion_by_type(va_list ap, t_arg *arg)
 
 static int		check_format(const char *format, t_arg *arg, int i, va_list ap)
 {
-	while (check_specifier(format, arg, &i) == 1 && format[i])
+	while (format && format[i] && check_specifier(format, arg, &i) == 1)
 	{
 		if (check_flags(format, arg, &i) == 1 && \
-				check_width(format, arg, &i, ap) == 1 && \
-				check_precision(format, arg, &i, ap) == 1 && \
-				check_length(format, arg, &i) == 1)
+		check_width(format, arg, &i, ap) == 1 && \
+		check_precision(format, arg, &i, ap) == 1 && \
+		check_length(format, arg, &i) == 1)
 		{
 			check_specifier(format, arg, &i);
 			break ;
 		}
-		while (ft_isprint(format[i]) == 0 && format[i])
+		while (format && format[i] && !ft_isprint(format[i]))
 			i++;
 	}
 	if (arg->prec >= 0 && arg->flag == '0' && arg->specifier != '%')
@@ -83,7 +83,7 @@ static int		check_and_convert(const char *format, t_arg *arg, va_list ap)
 
 	i = 0;
 	arg->ret = 0;
-	while (format[i] && arg->error == 0)
+	while (format && format[i] && arg->error == 0)
 	{
 		if (format[i] == '%')
 		{
@@ -113,7 +113,8 @@ int				ft_printf(char const *format, ...)
 
 	if (!format)
 		return (-1);
-	arg.buffer = ft_strnew(0);
+	if (!(arg.buffer = ft_strnew(1)))
+		exit(EXIT_FAILURE);
 	arg.error = 0;
 	arg.errorno = 0;
 	arg.retc = 0;
@@ -121,7 +122,7 @@ int				ft_printf(char const *format, ...)
 	arg.errorno = check_and_convert(format, &arg, ap);
 	va_end(ap);
 	if (arg.error == 0)
-		arg.ret = write(1, arg.buffer, ft_strlen(arg.buffer)) + arg.ret;
+		arg.ret += write(1, arg.buffer, ft_strlen(arg.buffer));
 	else
 	{
 		arg.ret = -1;
@@ -130,6 +131,6 @@ int				ft_printf(char const *format, ...)
 	}
 	if (arg.errorno == 1)
 		arg.ret = 0;
-	free(arg.buffer);
+	ft_strdel(&arg.buffer);
 	return (arg.ret);
 }
