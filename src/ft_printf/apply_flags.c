@@ -6,7 +6,7 @@
 /*   By: rbarbazz <rbarbazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/14 16:51:51 by rbarbazz          #+#    #+#             */
-/*   Updated: 2018/08/27 19:08:53 by rbarbazz         ###   ########.fr       */
+/*   Updated: 2018/08/30 18:32:45 by rbarbazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int		check_width(const char *format, t_arg *arg, int *i, va_list ap)
 	}
 	if (!(tmp = ft_memalloc(ft_strlen(format))))
 		exit(1);
-	while (format && format[*i] && ft_isdigit(format[*i]))
+	while (ft_isdigit(format[*i]))
 	{
 		tmp[itmp] = format[*i++];
 		itmp++;
@@ -77,7 +77,7 @@ int		check_precision(const char *format, t_arg *arg, int *i, va_list ap)
 		}
 		if (!(tmp = ft_memalloc(ft_strlen(format))))
 			exit(1);
-		while (format && format[*i] && ft_isdigit(format[*i]))
+		while (ft_isdigit(format[*i]))
 			tmp[itmp++] = format[(*i)++];
 		tmp[itmp] = '\0';
 		if (!*tmp)

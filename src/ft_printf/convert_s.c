@@ -6,7 +6,7 @@
 /*   By: rbarbazz <rbarbazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/14 16:51:51 by rbarbazz          #+#    #+#             */
-/*   Updated: 2018/08/27 19:10:41 by rbarbazz         ###   ########.fr       */
+/*   Updated: 2018/08/30 18:33:24 by rbarbazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static int		ft_wstrlenprec(t_arg *arg, int len)
 	int	i;
 
 	i = 0;
-	while (arg->ws && arg->ws[i])
+	while (arg->ws)
 	{
 		arg->ui = arg->ws[i++];
 		lenchar = calc_length(arg);
@@ -47,7 +47,7 @@ static int		ft_wstrlen(t_arg *arg, int len)
 	int	i;
 
 	i = 0;
-	while (arg->ws && arg->ws[i])
+	while (arg->ws)
 	{
 		arg->ui = arg->ws[i++];
 		lenchar = calc_length(arg);
