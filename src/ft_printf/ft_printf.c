@@ -6,7 +6,7 @@
 /*   By: rbarbazz <rbarbazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/14 11:53:49 by rbarbazz          #+#    #+#             */
-/*   Updated: 2018/08/30 18:34:31 by rbarbazz         ###   ########.fr       */
+/*   Updated: 2018/05/14 14:09:46 by rbarbazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ static int		handle_conversion_by_type(va_list ap, t_arg *arg)
 
 static int		check_format(const char *format, t_arg *arg, int i, va_list ap)
 {
-	while (check_specifier(format, arg, &i) == 1)
+	while (check_specifier(format, arg, &i) == 1 && format[i])
 	{
 		if (check_flags(format, arg, &i) == 1 && \
 				check_width(format, arg, &i, ap) == 1 && \
@@ -51,7 +51,7 @@ static int		check_format(const char *format, t_arg *arg, int i, va_list ap)
 			check_specifier(format, arg, &i);
 			break ;
 		}
-		while (ft_isprint(format[i]) == 0)
+		while (ft_isprint(format[i]) == 0 && format[i])
 			i++;
 	}
 	if (arg->prec >= 0 && arg->flag == '0' && arg->specifier != '%')
@@ -83,7 +83,7 @@ static int		check_and_convert(const char *format, t_arg *arg, va_list ap)
 
 	i = 0;
 	arg->ret = 0;
-	while (format && arg->error == 0)
+	while (format[i] && arg->error == 0)
 	{
 		if (format[i] == '%')
 		{
@@ -130,6 +130,6 @@ int				ft_printf(char const *format, ...)
 	}
 	if (arg.errorno == 1)
 		arg.ret = 0;
-	ft_strdel(&arg.buffer);
+	free(arg.buffer);
 	return (arg.ret);
 }

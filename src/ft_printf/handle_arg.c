@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   handle_arg.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rbarbazz <rbarbazz@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rbarbazz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/16 12:39:08 by rbarbazz          #+#    #+#             */
-/*   Updated: 2018/08/27 18:37:36 by rbarbazz         ###   ########.fr       */
+/*   Updated: 2018/03/08 16:14:57 by rbarbazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int	check_type_int(va_list ap, t_arg *arg)
 		return (1);
 	arg->itoaed = itoa;
 	convert_int_long(arg);
-	ft_strdel(&itoa);
+	free(itoa);
 	return (0);
 }
 
@@ -59,7 +59,7 @@ int	check_type_long(va_list ap, t_arg *arg)
 		return (1);
 	arg->itoaed = itoa;
 	convert_int_long(arg);
-	ft_strdel(&itoa);
+	free(itoa);
 	return (0);
 }
 
@@ -105,6 +105,6 @@ int	check_type_short(va_list ap, t_arg *arg)
 		return (1);
 	arg->itoaed = itoa;
 	convert_int_long(arg);
-	ft_strdel(&itoa);
+	free(itoa);
 	return (0);
 }

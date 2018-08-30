@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   handle_arg2.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rbarbazz <rbarbazz@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rbarbazz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/24 18:10:07 by rbarbazz          #+#    #+#             */
-/*   Updated: 2018/08/27 18:38:07 by rbarbazz         ###   ########.fr       */
+/*   Updated: 2018/03/08 16:15:16 by rbarbazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,6 +93,6 @@ int	check_type_long2(va_list ap, t_arg *arg)
 		return (1);
 	arg->itoaed = itoa;
 	convert_int_long(arg);
-	ft_strdel(&itoa);
+	free(itoa);
 	return (0);
 }
