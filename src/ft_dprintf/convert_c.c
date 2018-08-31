@@ -6,13 +6,13 @@
 /*   By: rbarbazz <rbarbazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/14 16:51:51 by rbarbazz          #+#    #+#             */
-/*   Updated: 2018/08/30 16:49:20 by rbarbazz         ###   ########.fr       */
+/*   Updated: 2018/08/31 02:13:01 by rbarbazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int			c_nul(t_arg *arg)
+int			ft_dprintf_c_nul(t_arg *arg)
 {
 	if (arg->flag != '-')
 		apply_width(arg);
@@ -22,21 +22,5 @@ int			c_nul(t_arg *arg)
 	if (!(arg->buffer = ft_strnew(1)))
 		exit(EXIT_FAILURE);
 	apply_width(arg);
-	return (0);
-}
-
-int			convert_c(t_arg *arg)
-{
-	arg->width--;
-	if (!arg->uc && arg->specifier != '%')
-		c_nul(arg);
-	else if (arg->flag != '-')
-		apply_width(arg);
-	if (arg->specifier == '%')
-		arg->buffer = strcatchar(arg->buffer, '%');
-	else
-		arg->buffer = strcatchar(arg->buffer, arg->uc);
-	apply_width(arg);
-	arg->retc = ft_strlen(arg->buffer);
 	return (0);
 }

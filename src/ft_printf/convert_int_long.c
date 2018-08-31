@@ -6,7 +6,7 @@
 /*   By: rbarbazz <rbarbazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/05 17:19:32 by rbarbazz          #+#    #+#             */
-/*   Updated: 2018/08/30 16:31:24 by rbarbazz         ###   ########.fr       */
+/*   Updated: 2018/08/31 02:19:57 by rbarbazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,15 @@ static int	apply_flags(t_arg *arg)
 	|| arg->specifier == 'X'))
 	{
 		if (arg->specifier == 'x')
-			arg->buffer = ft_strcat(arg->buffer, "0x");
+		{
+			arg->buffer = strcatchar(arg->buffer, '0');
+			arg->buffer = strcatchar(arg->buffer, 'x');
+		}
 		if (arg->specifier == 'X')
-			arg->buffer = ft_strcat(arg->buffer, "0X");
+		{
+			arg->buffer = strcatchar(arg->buffer, '0');
+			arg->buffer = strcatchar(arg->buffer, 'X');
+		}
 	}
 	if (arg->flag_two == '+' && !ft_strchr("uUoOxX", arg->specifier))
 		arg->buffer = strcatchar(arg->buffer, '+');
