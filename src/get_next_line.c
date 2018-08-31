@@ -6,7 +6,7 @@
 /*   By: rbarbazz <rbarbazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/06 10:02:45 by rbarbazz          #+#    #+#             */
-/*   Updated: 2018/08/28 20:44:20 by rbarbazz         ###   ########.fr       */
+/*   Updated: 2018/08/31 20:53:35 by rbarbazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,40 +20,42 @@ static int	check_line(int *last, char **save, char **line)
 	{
 		tmp = *save;
 		if (!(*line = dup_to_char(*save, '\n')))
-			return (0);
-		if (!(*save = dup_from_char(*save, '\n')))
-			return (0);
+			return (-1);
+		if (!(*save = dup_from_char(tmp, '\n')))
+			return (-1);
 		ft_strdel(&tmp);
-		if (!*save || !*save[0])
+		if (*save && !*save[0])
 			*last = 1;
 		return (1);
 	}
 	if (!(*line = ft_strdup(*save)))
-		return (0);
-	ft_strdel(save);
+		return (-1);
 	*last = 1;
 	return (1);
 }
 
-static char	*read_buffer(int *err, const int fd, char **save)
+static char	*read_buffer(int *err, const int fd)
 {
-	char	buf[BUFF_SIZE];
+	char	buf[BUFF_SIZE + 1];
 	int		ret;
 	char	*tmp;
+	char	*res;
 
-	tmp = ft_strnew(0);
+	if (!(tmp = ft_strnew(1)))
+		return (NULL);
 	while ((ret = read(fd, buf, BUFF_SIZE)) > 0)
 	{
 		buf[ret] = '\0';
-		*save = ft_strjoin(tmp, buf);
+		if (!(res = ft_strjoin(tmp, buf)))
+			return (NULL);
 		ft_strdel(&tmp);
-		tmp = *save;
+		tmp = res;
 	}
 	if (tmp && !tmp[0])
 		ft_strdel(&tmp);
 	if (ret < 0)
 		*err = -1;
-	return (*save);
+	return (res);
 }
 
 int			get_next_line(const int fd, char **line)
@@ -71,7 +73,8 @@ int			get_next_line(const int fd, char **line)
 		return (0);
 	}
 	if (!save)
-		save = read_buffer(&err, fd, &save);
+		if (!(save = read_buffer(&err, fd)))
+			return (-1);
 	if (err < 0)
 		return (err);
 	return (check_line(&last, &save, line));
