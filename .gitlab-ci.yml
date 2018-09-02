@@ -1,5 +1,5 @@
 make:
     script: 
-        - apt-get update -qq && apt-get install -y clang
+        - apt-get update && apt-get install -y clang
         - make
     
