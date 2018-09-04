@@ -6,7 +6,7 @@
 /*   By: rbarbazz <rbarbazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/14 11:53:49 by rbarbazz          #+#    #+#             */
-/*   Updated: 2018/08/31 02:14:20 by rbarbazz         ###   ########.fr       */
+/*   Updated: 2018/09/04 11:01:59 by rbarbazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,9 +111,7 @@ int				ft_dprintf(int fd, char const *format, ...)
 	va_list	ap;
 	t_arg	arg;
 
-	if (!format)
-		return (-1);
-	if (!(arg.buffer = ft_strnew(1)))
+	if (!format || !(arg.buffer = ft_strnew(1)))
 		exit(EXIT_FAILURE);
 	arg.error = 0;
 	arg.errorno = 0;

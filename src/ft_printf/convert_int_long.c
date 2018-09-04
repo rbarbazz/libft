@@ -6,7 +6,7 @@
 /*   By: rbarbazz <rbarbazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/05 17:19:32 by rbarbazz          #+#    #+#             */
-/*   Updated: 2018/08/31 02:19:57 by rbarbazz         ###   ########.fr       */
+/*   Updated: 2018/09/04 10:59:20 by rbarbazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,7 @@ static int	calc_width_and_precision(t_arg *arg)
 		arg->width -= arg->prec;
 	return (0);
 }
+
 static void	apply_modifiers(t_arg *arg)
 {
 	apply_flags(arg);

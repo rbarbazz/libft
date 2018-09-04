@@ -6,7 +6,7 @@
 /*   By: rbarbazz <rbarbazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/16 12:39:08 by rbarbazz          #+#    #+#             */
-/*   Updated: 2018/08/30 16:28:53 by rbarbazz         ###   ########.fr       */
+/*   Updated: 2018/09/04 10:59:43 by rbarbazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int	check_type_long(va_list ap, t_arg *arg)
 
 	itoa = NULL;
 	if ((ft_strchr("di", arg->specifier) && (!ft_strcmp(arg->length, "j") ||\
-	!ft_strcmp(arg->length, "ll") || !ft_strcmp(arg->length,"l"))) ||\
+	!ft_strcmp(arg->length, "ll") || !ft_strcmp(arg->length, "l"))) ||\
 	ft_strchr("D", arg->specifier))
 		itoa = ft_itoa(va_arg(ap, long long), 10, 0);
 	else if (ft_strchr("di", arg->specifier) && !ft_strcmp(arg->length, "z"))
