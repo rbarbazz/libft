@@ -6,7 +6,7 @@
 #    By: rbarbazz <rbarbazz@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/09 16:41:38 by rbarbazz          #+#    #+#              #
-#    Updated: 2018/08/31 02:15:02 by rbarbazz         ###   ########.fr        #
+#    Updated: 2018/09/11 12:41:16 by rbarbazz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -92,6 +92,7 @@ SRC_NAME = atoull.c\
 		   strings/ft_toupper.c\
 		   strings/strdup_wo_c.c\
 		   strings/strcatchar.c\
+		   strings/strjoinchar.c\
 		   strings/strsplit_whitespace.c\
 		   strings/strstrdup.c
 
