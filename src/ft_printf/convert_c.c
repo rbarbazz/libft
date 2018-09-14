@@ -6,7 +6,7 @@
 /*   By: rbarbazz <rbarbazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/14 16:51:51 by rbarbazz          #+#    #+#             */
-/*   Updated: 2018/08/30 16:23:58 by rbarbazz         ###   ########.fr       */
+/*   Updated: 2018/09/14 20:21:40 by rbarbazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,9 @@ int			c_nul(t_arg *arg)
 {
 	if (arg->flag != '-')
 		apply_width(arg);
-	arg->ret = arg->ret + write(1, arg->buffer, ft_strlen(arg->buffer));
-	write(1, "\0", 1);
+	arg->ret = arg->ret + write(arg->fd, arg->buffer, ft_strlen(arg->buffer));
+	ft_strdel(&arg->buffer);
+	write(arg->fd, "\0", 1);
 	arg->ret++;
 	if (!(arg->buffer = ft_strnew(1)))
 		exit(EXIT_FAILURE);
@@ -34,7 +35,7 @@ int			convert_c(t_arg *arg)
 		apply_width(arg);
 	if (arg->specifier == '%')
 		arg->buffer = strcatchar(arg->buffer, '%');
-	else
+	else if (arg->uc)
 		arg->buffer = strcatchar(arg->buffer, arg->uc);
 	apply_width(arg);
 	arg->retc = ft_strlen(arg->buffer);

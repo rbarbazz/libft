@@ -6,7 +6,7 @@
 /*   By: rbarbazz <rbarbazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/14 11:53:49 by rbarbazz          #+#    #+#             */
-/*   Updated: 2018/08/30 16:57:17 by rbarbazz         ###   ########.fr       */
+/*   Updated: 2018/09/14 20:21:14 by rbarbazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,23 +111,22 @@ int				ft_printf(char const *format, ...)
 	va_list	ap;
 	t_arg	arg;
 
-	if (!format)
-		return (-1);
-	if (!(arg.buffer = ft_strnew(1)))
+	if (!format || !(arg.buffer = ft_strnew(1)))
 		exit(EXIT_FAILURE);
 	arg.error = 0;
 	arg.errorno = 0;
 	arg.retc = 0;
+	arg.fd = STDOUT_FILENO;
 	va_start(ap, format);
 	arg.errorno = check_and_convert(format, &arg, ap);
 	va_end(ap);
 	if (arg.error == 0)
-		arg.ret += write(1, arg.buffer, ft_strlen(arg.buffer));
+		arg.ret += write(arg.fd, arg.buffer, ft_strlen(arg.buffer));
 	else
 	{
 		arg.ret = -1;
 		if (!ft_strchr("sS", arg.specifier))
-			write(1, arg.buffer, arg.retc);
+			write(arg.fd, arg.buffer, arg.retc);
 	}
 	if (arg.errorno == 1)
 		arg.ret = 0;

@@ -6,7 +6,7 @@
 #    By: rbarbazz <rbarbazz@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/09 16:41:38 by rbarbazz          #+#    #+#              #
-#    Updated: 2018/09/11 12:41:16 by rbarbazz         ###   ########.fr        #
+#    Updated: 2018/09/14 20:22:11 by rbarbazz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,8 +41,7 @@ SRC_NAME = atoull.c\
 		   ft_printf/ft_printf.c\
 		   ft_printf/handle_arg.c\
 		   ft_printf/handle_arg2.c\
-		   ft_dprintf/convert_c.c\
-		   ft_dprintf/ft_dprintf.c\
+		   ft_printf/ft_dprintf.c\
 		   get_next_line.c\
 		   get_stdin.c\
 		   lists/ft_lstdel.c\

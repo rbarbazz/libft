@@ -6,7 +6,7 @@
 /*   By: rbarbazz <rbarbazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/14 10:01:56 by rbarbazz          #+#    #+#             */
-/*   Updated: 2018/08/31 02:13:17 by rbarbazz         ###   ########.fr       */
+/*   Updated: 2018/09/14 20:22:22 by rbarbazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,6 @@ int					convert_ws(t_arg *arg);
 int					apply_width(t_arg *arg);
 int					calc_length(t_arg *arg);
 int					c_nul(t_arg *arg);
-int					ft_dprintf_c_nul(t_arg *arg);
 int					add_wchar3(t_arg *arg, unsigned int mask);
 int					add_wchar4(t_arg *arg, unsigned long long mask);
 int					call_wchar(t_arg *arg, int len);
