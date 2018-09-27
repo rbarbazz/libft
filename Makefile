@@ -6,7 +6,7 @@
 #    By: rbarbazz <rbarbazz@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/09 16:41:38 by rbarbazz          #+#    #+#              #
-#    Updated: 2018/09/14 20:22:11 by rbarbazz         ###   ########.fr        #
+#    Updated: 2018/09/27 17:06:45 by rbarbazz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -93,7 +93,8 @@ SRC_NAME = atoull.c\
 		   strings/strcatchar.c\
 		   strings/strjoinchar.c\
 		   strings/strsplit_whitespace.c\
-		   strings/strstrdup.c
+		   strings/strstrdup.c\
+		   xxd.c
 
 OBJ_PATH = obj
 
