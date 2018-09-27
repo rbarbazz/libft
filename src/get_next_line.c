@@ -6,7 +6,7 @@
 /*   By: rbarbazz <rbarbazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/06 10:02:45 by rbarbazz          #+#    #+#             */
-/*   Updated: 2018/09/27 11:55:41 by rbarbazz         ###   ########.fr       */
+/*   Updated: 2018/09/27 12:03:27 by rbarbazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ static char	*read_buffer(int *err, const int fd)
 	char	*tmp;
 	char	*res;
 
+	res = NULL;
 	if (!(tmp = ft_strnew(1)))
 		return (NULL);
 	while ((ret = read(fd, buf, BUFF_SIZE)) > 0)
