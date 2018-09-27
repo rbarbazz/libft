@@ -6,7 +6,7 @@
 /*   By: rbarbazz <rbarbazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/06 10:02:45 by rbarbazz          #+#    #+#             */
-/*   Updated: 2018/08/31 20:53:35 by rbarbazz         ###   ########.fr       */
+/*   Updated: 2018/09/27 11:55:41 by rbarbazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,9 @@ int			get_next_line(const int fd, char **line)
 		return (-1);
 	if (last == 1)
 	{
-		ft_strdel(&save);
+		last = 0;
+		if (save)
+			ft_strdel(&save);
 		return (0);
 	}
 	if (!save)
