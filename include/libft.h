@@ -6,7 +6,7 @@
 /*   By: rbarbazz <rbarbazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/09 16:37:58 by rbarbazz          #+#    #+#             */
-/*   Updated: 2018/09/27 17:06:32 by rbarbazz         ###   ########.fr       */
+/*   Updated: 2018/10/02 12:17:20 by rbarbazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,5 +98,6 @@ void				ft_striteri(char *s, void (*f)(unsigned int, char *));
 void				strstr_free(char **str);
 char				*strjoinchar(char *s1, char const c);
 void				xxd(char *file, int size);
+long				atol(const char *str);
 
 #endif
