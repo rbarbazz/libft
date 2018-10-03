@@ -6,7 +6,7 @@
 /*   By: rbarbazz <rbarbazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/09 16:37:58 by rbarbazz          #+#    #+#             */
-/*   Updated: 2018/10/02 14:41:20 by rbarbazz         ###   ########.fr       */
+/*   Updated: 2018/10/03 15:58:14 by rbarbazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,5 +100,6 @@ char				*strjoinchar(char *s1, char const c);
 void				xxd(char *file, int size);
 long				atol(const char *str);
 char				*ft_strndup(char *str, int size);
+int					ft_sqrt(int nb);
 
 #endif

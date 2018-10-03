@@ -6,7 +6,7 @@
 #    By: rbarbazz <rbarbazz@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/09 16:41:38 by rbarbazz          #+#    #+#              #
-#    Updated: 2018/10/02 14:41:52 by rbarbazz         ###   ########.fr        #
+#    Updated: 2018/10/03 16:00:18 by rbarbazz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -96,7 +96,8 @@ SRC_NAME = atoull.c\
 		   strings/strsplit_whitespace.c\
 		   strings/strstrdup.c\
 		   strings/ft_strndup.c\
-		   xxd.c
+		   xxd.c\
+		   ft_sqrt.c
 
 OBJ_PATH = obj
 
