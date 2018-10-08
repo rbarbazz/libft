@@ -6,7 +6,7 @@
 #    By: rbarbazz <rbarbazz@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/09 16:41:38 by rbarbazz          #+#    #+#              #
-#    Updated: 2018/10/03 16:00:18 by rbarbazz         ###   ########.fr        #
+#    Updated: 2018/10/08 19:06:05 by rbarbazz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -120,7 +120,8 @@ $(NAME): $(OBJ)
 	ranlib $(NAME)
 
 $(OBJ_PATH)/%.o: $(SRC_PATH)/%.c
-	@mkdir -p obj/ft_printf obj/ft_dprintf obj/strings obj/boolean obj/display obj/lists obj/mem
+	@mkdir -p obj/ft_printf obj/ft_dprintf obj/strings obj/boolean obj/display \
+	obj/lists obj/mem
 	$(CC) $(CFLAGS) $(CPPFLAGS) -o $@ -c $<
 
 norme:
@@ -133,6 +134,8 @@ clean:
 fclean: clean
 	rm -f $(NAME)
 
-re: fclean all
+re:
+	$(MAKE) fclean
+	$(MAKE)
 
 .PHONY: all, clean, fclean, re
