@@ -6,7 +6,7 @@
 /*   By: rbarbazz <rbarbazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/09 16:37:58 by rbarbazz          #+#    #+#             */
-/*   Updated: 2018/10/03 15:58:14 by rbarbazz         ###   ########.fr       */
+/*   Updated: 2018/10/08 18:13:05 by rbarbazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,7 @@ void				ft_striter(char *s, void (*f)(char *));
 void				ft_striteri(char *s, void (*f)(unsigned int, char *));
 void				strstr_free(char **str);
 char				*strjoinchar(char *s1, char const c);
-void				xxd(char *file, int size);
+void				xxd(char *file, int size, int bline);
 long				atol(const char *str);
 char				*ft_strndup(char *str, int size);
 int					ft_sqrt(int nb);
