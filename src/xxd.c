@@ -6,7 +6,7 @@
 /*   By: rbarbazz <rbarbazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/27 17:05:46 by rbarbazz          #+#    #+#             */
-/*   Updated: 2018/10/08 18:13:25 by rbarbazz         ###   ########.fr       */
+/*   Updated: 2018/10/08 18:32:23 by rbarbazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@ void	xxd(char *file, int size, int bline)
 	while (i < size)
 	{
 		ft_printf("%.2hhx", file[i++]);
-		if (!(i % 2))
-			ft_printf(" ");
 		if (!(i % bline))
 			ft_printf("\n");
+		else
+			ft_printf(" ");
 	}
 	ft_printf("\n");
 }
