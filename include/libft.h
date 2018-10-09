@@ -6,7 +6,7 @@
 /*   By: rbarbazz <rbarbazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/09 16:37:58 by rbarbazz          #+#    #+#             */
-/*   Updated: 2018/10/08 18:13:05 by rbarbazz         ###   ########.fr       */
+/*   Updated: 2018/10/09 12:15:09 by rbarbazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,5 +101,6 @@ void				xxd(char *file, int size, int bline);
 long				atol(const char *str);
 char				*ft_strndup(char *str, int size);
 int					ft_sqrt(int nb);
+char				*mem_rev(char *str, size_t n);
 
 #endif
