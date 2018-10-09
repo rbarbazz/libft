@@ -6,7 +6,7 @@
 #    By: rbarbazz <rbarbazz@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/09 16:41:38 by rbarbazz          #+#    #+#              #
-#    Updated: 2018/10/09 12:15:18 by rbarbazz         ###   ########.fr        #
+#    Updated: 2018/10/09 12:18:14 by rbarbazz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -58,6 +58,7 @@ SRC_NAME = atoull.c\
 		   mem/ft_memmove.c\
 		   mem/ft_memset.c\
 		   mem/strstr_free.c\
+		   mem/mem_rev.c\
 		   strings/count_char.c\
 		   strings/dup_from_char.c\
 		   strings/dup_to_char.c\
@@ -97,8 +98,7 @@ SRC_NAME = atoull.c\
 		   strings/strstrdup.c\
 		   strings/ft_strndup.c\
 		   xxd.c\
-		   ft_sqrt.c\
-		   mem_rev.c
+		   ft_sqrt.c
 
 OBJ_PATH = obj
 
