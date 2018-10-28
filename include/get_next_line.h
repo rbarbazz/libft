@@ -6,7 +6,7 @@
 /*   By: rbarbazz <rbarbazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/06 10:04:09 by rbarbazz          #+#    #+#             */
-/*   Updated: 2018/08/06 23:33:06 by rbarbazz         ###   ########.fr       */
+/*   Updated: 2018/10/28 14:00:38 by rbarbazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,5 @@
 # include "libft.h"
 
 int	get_next_line(const int fd, char **line);
-int	get_stdin(const int fd, char **line);
 
 #endif

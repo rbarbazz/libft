@@ -6,7 +6,7 @@
 /*   By: rbarbazz <rbarbazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/14 10:01:56 by rbarbazz          #+#    #+#             */
-/*   Updated: 2018/09/14 20:22:22 by rbarbazz         ###   ########.fr       */
+/*   Updated: 2018/10/28 14:01:07 by rbarbazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,9 +45,9 @@ int					ft_dprintf(int fd, char const *format, ...);
 
 int					check_flags(const char *format, t_arg *arg, int *i);
 int					check_width(const char *format, t_arg *arg, int *i,\
-		va_list ap);
+	va_list ap);
 int					check_precision(const char *format, t_arg *arg, int *i,\
-		va_list ap);
+	va_list ap);
 int					check_length(const char *format, t_arg *arg, int *i);
 int					check_specifier(const char *format, t_arg *arg, int *i);
 

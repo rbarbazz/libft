@@ -6,7 +6,7 @@
 /*   By: rbarbazz <rbarbazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/07 02:04:21 by rbarbazz          #+#    #+#             */
-/*   Updated: 2018/08/20 14:50:52 by rbarbazz         ###   ########.fr       */
+/*   Updated: 2018/10/28 14:01:31 by rbarbazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ int	is_number(char *str)
 	i = 0;
 	if (!str)
 		return (0);
-	if (str[i] && (str[i] == '-' || str[i] == '+'))
+	if (str && str[i] && (str[i] == '-' || str[i] == '+'))
 		i++;
-	while (str[i])
+	while (str && str[i])
 	{
 		if (!ft_isdigit(str[i]))
 			return (0);

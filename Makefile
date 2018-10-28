@@ -6,11 +6,17 @@
 #    By: rbarbazz <rbarbazz@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/09 16:41:38 by rbarbazz          #+#    #+#              #
-#    Updated: 2018/10/12 21:07:07 by rbarbazz         ###   ########.fr        #
+#    Updated: 2018/10/28 14:00:47 by rbarbazz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
+
+INC_PATH = include/
+
+INC_FILES = libft.h ft_printf.h get_next_line.h
+
+INC_FULL = $(addprefix $(INC_PATH)/, $(INC_FILES))
 
 SRC_PATH = src
 
@@ -44,7 +50,6 @@ SRC_NAME = atoull.c\
 		   ft_printf/handle_arg2.c\
 		   ft_printf/ft_dprintf.c\
 		   get_next_line.c\
-		   get_stdin.c\
 		   lists/ft_lstdel.c\
 		   lists/ft_lstdelone.c\
 		   lists/ft_lstnew.c\
@@ -120,7 +125,7 @@ $(NAME): $(OBJ)
 	ar rc $(NAME) $(OBJ)
 	ranlib $(NAME)
 
-$(OBJ_PATH)/%.o: $(SRC_PATH)/%.c
+$(OBJ_PATH)/%.o: $(SRC_PATH)/%.c $(INC_FULL)
 	@mkdir -p obj/ft_printf obj/ft_dprintf obj/strings obj/boolean obj/display \
 	obj/lists obj/mem
 	$(CC) $(CFLAGS) $(CPPFLAGS) -o $@ -c $<
