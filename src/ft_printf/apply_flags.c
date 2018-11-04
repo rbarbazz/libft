@@ -6,7 +6,7 @@
 /*   By: rbarbazz <rbarbazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/14 16:51:51 by rbarbazz          #+#    #+#             */
-/*   Updated: 2018/08/30 16:23:42 by rbarbazz         ###   ########.fr       */
+/*   Updated: 2018/10/31 08:22:18 by rbarbazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,12 +114,12 @@ int		check_length(const char *format, t_arg *arg, int *i)
 
 int		check_specifier(const char *format, t_arg *arg, int *i)
 {
-	if (format && format[*i] && (format[*i] == 's' || format[*i] == 'S' ||\
-	format[*i] == 'p' || format[*i] == 'd' || format[*i] == 'D' ||\
-	format[*i] == 'i' || format[*i] == 'o' || format[*i] == 'O' ||\
-	format[*i] == 'u' || format[*i] == 'U' || format[*i] == 'x' ||\
-	format[*i] == 'X' || format[*i] == 'c' || format[*i] == 'C' ||\
-	format[*i] == '%'))
+	if (format && format[*i] && (format[*i] == 's' || format[*i] == 'S'\
+		|| format[*i] == 'p' || format[*i] == 'd' || format[*i] == 'D'\
+		|| format[*i] == 'i' || format[*i] == 'o' || format[*i] == 'O'\
+		|| format[*i] == 'u' || format[*i] == 'U' || format[*i] == 'x'\
+		|| format[*i] == 'X' || format[*i] == 'c' || format[*i] == 'C'\
+		|| format[*i] == '%'))
 		arg->specifier = format[*i];
 	else
 		return (1);

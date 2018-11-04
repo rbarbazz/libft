@@ -6,7 +6,7 @@
 /*   By: rbarbazz <rbarbazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/05 17:19:32 by rbarbazz          #+#    #+#             */
-/*   Updated: 2018/09/04 10:59:20 by rbarbazz         ###   ########.fr       */
+/*   Updated: 2018/11/04 13:22:51 by rbarbazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,11 @@ static int	apply_precision(t_arg *arg)
 
 static int	apply_flags(t_arg *arg)
 {
-	if (arg->flag_sharp && arg->itoaed[0] != '0' && (arg->specifier == 'o' || \
-	arg->specifier == 'O'))
+	if (arg->flag_sharp && arg->itoaed[0] != '0' && (arg->specifier == 'o'\
+		|| arg->specifier == 'O'))
 		arg->buffer = strcatchar(arg->buffer, '0');
 	else if (arg->flag_sharp && arg->itoaed[0] != '0' && (arg->specifier == 'x'\
-	|| arg->specifier == 'X'))
+		|| arg->specifier == 'X'))
 	{
 		if (arg->specifier == 'x')
 		{
@@ -50,15 +50,15 @@ static int	calc_width_and_precision(t_arg *arg)
 	arg->width -= ft_strlen(arg->itoaed);
 	if (arg->itoaed[0] == '0' && arg->prec == 0)
 		arg->width += ft_strlen(arg->itoaed);
-	if ((arg->flag_sharp && arg->itoaed[0] != '0' && (arg->specifier == 'o' ||\
-	arg->specifier == 'O' || arg->specifier == 'x' || arg->specifier == 'X'))\
-	|| (arg->flag_two && arg->itoaed[0] != '-'))
+	if ((arg->flag_sharp && arg->itoaed[0] != '0' && (arg->specifier == 'o'\
+		|| arg->specifier == 'O' || arg->specifier == 'x' || arg->specifier\
+			== 'X')) || (arg->flag_two && arg->itoaed[0] != '-'))
 	{
 		if (arg->specifier == 'x' || arg->specifier == 'X')
 			arg->width--;
 		arg->width--;
 		if ((arg->specifier == 'o' || arg->specifier == 'O') && arg->flag_sharp\
-		&& arg->prec)
+			&& arg->prec)
 			arg->prec--;
 	}
 	if (arg->prec >= 0)
@@ -93,14 +93,14 @@ int			convert_int_long(t_arg *arg)
 	{
 		arg->buffer = strcatchar(arg->buffer, '-');
 		ft_memmove(arg->itoaed, arg->itoaed + 1, ft_strlen(arg->itoaed + 1)\
-	+ 1);
+			+ 1);
 	}
 	apply_modifiers(arg);
 	if (arg->width > 0 && arg->flag != '-')
 		apply_width(arg);
 	if ((arg->itoaed[0] == '0' && !save && !arg->flag_sharp) || (arg->itoaed[0]\
-	== '0' && !save && (arg->specifier == 'x' || arg->specifier == 'X') &&\
-	arg->flag_sharp))
+		== '0' && !save && (arg->specifier == 'x' || arg->specifier == 'X')\
+			&& arg->flag_sharp))
 		return (0);
 	while (arg->itoaed && arg->itoaed[i])
 		arg->buffer = strcatchar(arg->buffer, arg->itoaed[i++]);

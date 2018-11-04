@@ -6,7 +6,7 @@
 /*   By: rbarbazz <rbarbazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/14 11:53:49 by rbarbazz          #+#    #+#             */
-/*   Updated: 2018/09/14 20:21:14 by rbarbazz         ###   ########.fr       */
+/*   Updated: 2018/11/04 13:23:38 by rbarbazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,10 +43,10 @@ static int		check_format(const char *format, t_arg *arg, int i, va_list ap)
 {
 	while (format && format[i] && check_specifier(format, arg, &i) == 1)
 	{
-		if (check_flags(format, arg, &i) == 1 && \
-		check_width(format, arg, &i, ap) == 1 && \
-		check_precision(format, arg, &i, ap) == 1 && \
-		check_length(format, arg, &i) == 1)
+		if (check_flags(format, arg, &i) == 1\
+			&& check_width(format, arg, &i, ap) == 1\
+				&& check_precision(format, arg, &i, ap) == 1\
+					&& check_length(format, arg, &i) == 1)
 		{
 			check_specifier(format, arg, &i);
 			break ;

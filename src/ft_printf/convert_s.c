@@ -6,7 +6,7 @@
 /*   By: rbarbazz <rbarbazz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/14 16:51:51 by rbarbazz          #+#    #+#             */
-/*   Updated: 2018/08/30 16:11:55 by rbarbazz         ###   ########.fr       */
+/*   Updated: 2018/10/31 08:24:35 by rbarbazz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,20 +22,20 @@ static int		ft_wstrlenprec(t_arg *arg, int len)
 	{
 		arg->ui = arg->ws[i++];
 		lenchar = calc_length(arg);
-		if (lenchar <= 7 || (arg->ui <= 255 && arg->ui >= 127 &&\
-		MB_CUR_MAX == 1))
+		if (lenchar <= 7 || (arg->ui <= 255 && arg->ui >= 127\
+			&& MB_CUR_MAX == 1))
 		{
 			len++;
 			arg->prec--;
 		}
-		else if (lenchar >= 8 && lenchar <= 11 && (arg->savepr >= 0 &&\
-					((arg->prec -= 2) > 0)))
+		else if (lenchar >= 8 && lenchar <= 11 && (arg->savepr >= 0\
+			&& ((arg->prec -= 2) > 0)))
 			len += 2;
-		else if (lenchar >= 12 && lenchar <= 16 && (arg->savepr >= 0 &&\
-					((arg->prec -= 3) > 0)))
+		else if (lenchar >= 12 && lenchar <= 16 && (arg->savepr >= 0\
+			&& ((arg->prec -= 3) > 0)))
 			len += 3;
-		else if (lenchar >= 17 && lenchar <= 21 && (arg->savepr >= 0 &&\
-					((arg->prec -= 4) > 0)))
+		else if (lenchar >= 17 && lenchar <= 21 && (arg->savepr >= 0\
+			&& ((arg->prec -= 4) > 0)))
 			len += 4;
 	}
 	return (len);
@@ -51,8 +51,8 @@ static int		ft_wstrlen(t_arg *arg, int len)
 	{
 		arg->ui = arg->ws[i++];
 		lenchar = calc_length(arg);
-		if (lenchar <= 7 || (arg->ui <= 255 && arg->ui >= 127 &&\
-		MB_CUR_MAX == 1))
+		if (lenchar <= 7 || (arg->ui <= 255 && arg->ui >= 127\
+			&& MB_CUR_MAX == 1))
 			len++;
 		else if (lenchar >= 8 && lenchar <= 11)
 			len += 2;
